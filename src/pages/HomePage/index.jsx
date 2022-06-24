@@ -10,12 +10,13 @@ import Services from '../../component/Services'
 import TestimonyGrid from '../../component/TestimonyGrid'
 import WhyUs from '../../component/WhyUs'
 import UserContext from '../../context/user'
+import useTitle from '../../hooks/useTitle'
 import useTop from '../../hooks/useTop'
 import './homepage.style.css'
 
 const HomePage = ({ isModal, setIsModal }) => {
   useTop()
-
+  useTitle('Home | SaurathSabha')
   const { user } = useContext(UserContext)
   const location = useLocation()
   const history = useHistory()
@@ -28,17 +29,11 @@ const HomePage = ({ isModal, setIsModal }) => {
     }
   }, [isModal])
 
-  console.log(history.action, history)
   useEffect(() => {
     if (location?.state?.modal && history?.action === 'REPLACE') {
       setIsModal(location.state.modal)
     }
   }, [location])
-
-  // useEffect(() => {
-  //   const result = getUserByUid(user.uid)
-  //   console.log(result)
-  // }, [])
 
   return (
     <>

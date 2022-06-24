@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Loader from '../../component/Loader'
 import UserContext from '../../context/user'
+import useTitle from '../../hooks/useTitle'
 import useTop from '../../hooks/useTop'
 import { getFavList } from '../../utils/firebase'
 import './favourite.style.css'
 
 const Favourite = () => {
   useTop()
+  useTitle('Favourite | SaurathSabha')
   const [userList, setUserLists] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 

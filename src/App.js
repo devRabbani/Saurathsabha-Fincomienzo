@@ -15,9 +15,11 @@ import Additional from './pages/additional'
 import ServiceRegister from './pages/serviceRegister'
 import Favourite from './pages/favourite'
 import Notification from './pages/notification'
+import usePlanListener from './hooks/usePlanListner'
 
 function App() {
   const { user } = useAuthListener()
+  const plan = usePlanListener(user?.uid)
   const [isModal, setIsModal] = useState(false)
 
   // useEffect(() => {
@@ -29,7 +31,7 @@ function App() {
   // }, [isModal])
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ user, plan }}>
       <ModalContext.Provider value={{ isModal, setIsModal }}>
         <Nav setIsModal={setIsModal} user={user} />
         <div className='pageBody'>

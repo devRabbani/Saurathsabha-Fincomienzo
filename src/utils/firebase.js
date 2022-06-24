@@ -17,69 +17,6 @@ export const getDataByUid = async (uid, col) => {
   }
 }
 
-// export const getUserByUid = async (uid) => {
-//   const result = await firebaseApp
-//     .firestore()
-//     .collection('users')
-//     .where('userId', '==', uid)
-//     .limit(1)
-//     .get()
-
-//   if (!result.empty) {
-//     return result.docs[0].data()
-//   }
-// }
-
-// export const getAddionalData = async (uid) => {
-//   const result = await firebaseApp
-//     .firestore()
-//     .collection('additionalData')
-//     .where('userId', '==', uid)
-//     .limit(1)
-//     .get()
-
-//   if (!result.empty) {
-//     return result.docs[0].data()
-//   }
-// }
-
-// export const addToFav = (uid, favUid) => {
-//   firebaseApp
-//     .firestore()
-//     .collection("users ")
-//     .where("userId", "==", uid)
-//     .limit(1)
-//     .get()
-//     .then((query) => {
-//       query.docs[0].ref.update({
-//         favourite: FieldValue.arrayUnion(favUid),
-//       });
-//       alert("Done");
-//     });
-// };
-
-// export const addToFav2 = async (uid, favuid, name, img) => {
-//   firebaseApp
-//     .firestore()
-//     .collection('favourite')
-//     .doc(uid)
-//     .set(
-//       {
-//         data: FieldValue.arrayUnion({
-//           favuid,
-//           name,
-//           img,
-//         }),
-//       },
-//       { merge: true }
-//     )
-//     .then((data) => {
-//       alert('Done')
-//     })
-
-//   // console.log(result.exists);
-// }
-
 export const fetchConnectionData = async (uid, type) => {
   const query = await firebaseApp.firestore().collection(type).doc(uid).get()
   // const data = query.map((doc) => doc.data());
@@ -89,19 +26,6 @@ export const fetchConnectionData = async (uid, type) => {
     return data
   }
 }
-
-// export const removeFav = async (uid, favuid) => {
-//   const data = await fetchConnectionData(uid, 'favourite')
-//   console.log(data)
-
-//   firebaseApp
-//     .firestore()
-//     .collection('favourite')
-//     .doc(uid)
-//     .update({
-//       data: data.filter((item) => item.favuid !== favuid),
-//     })
-// }
 
 export const removeRequest = async (uid, deleteId) => {
   const newdata1 = await fetchConnectionData(uid, 'requested')
@@ -125,7 +49,6 @@ export const removeRequest = async (uid, deleteId) => {
 export const removeConnection = async (uid, deleteId) => {
   const data1 = await fetchConnectionData(uid, 'connections')
   const data2 = await fetchConnectionData(deleteId, 'connections')
-  console.log(uid, deleteId)
   await firebaseApp
     .firestore()
     .collection('connections')
@@ -184,18 +107,6 @@ export const addToConnect = async (
     )
   alert('Done')
 }
-
-// export const fetchRequest = async (uid) => {
-//   const data = await firebaseApp
-//     .firestore()
-//     .collection("requested")
-//     .doc(uid)
-//     .get();
-//   if (data.exists) {
-//     const newData = data.data().data;
-//     return newData;
-//   }
-// };
 
 export const acceptConnect = async (
   uid,
@@ -256,7 +167,7 @@ export const registerUser = async (data) => {
   if (gender === 'male') {
     profileUrl = '/male.png'
   } else {
-    profileUrl = '/male.png'
+    profileUrl = '/female.png'
   }
   await firebaseApp.firestore().collection('users').doc(userId).set({
     userId,
@@ -278,11 +189,6 @@ export const registerUser = async (data) => {
   await firebaseApp.auth().currentUser.updateProfile({
     displayName: name,
   })
-  // await firebaseApp.firestore().collection('requsted').add({
-  //   userId,
-  //   request: [],
-  //   sent: [],
-  // })
 }
 
 export const addAdditionalData = async (uid, data) => {
@@ -328,10 +234,9 @@ export const uploadProfile = async (uid, file) => {
       let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
       console.log('Upload is ' + progress + '% done')
     },
-    (err) => console.log(err),
+    (err) => console.error(err),
     () => {
       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-        console.log('File available at', downloadURL)
         return downloadURL
       })
     }
@@ -343,20 +248,6 @@ export const updateProfilePic = async (uid, url) => {
     profileUrl: url,
   })
 }
-
-// export const fetchAdditionalData = async (uid) => {
-//   const result = await firebaseApp
-//     .firestore()
-//     .collection('additional')
-//     .where('userId', '==', uid)
-//     .get()
-
-//   if (!result.empty) {
-//     return result.docs[0].data()
-//   } else {
-//     return
-//   }
-// }
 
 export const addAdditionalFile = async (uid, url) => {
   await firebaseApp.firestore().collection('users').doc(uid).set(
@@ -496,6 +387,7 @@ export const addToFav = async (
         age,
         city,
         employement,
+        userId: targetUid,
       },
       {
         merge: true,

@@ -2,15 +2,19 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import SearchCardList from '../../component/SearchCardList'
 import UserContext from '../../context/user'
+import useTitle from '../../hooks/useTitle'
 import { fetchAllUsers, fetchFilterData } from '../../utils/firebase'
 import './search.style.css'
 
 const Search = () => {
+  useTitle('Search | SaurathSabha')
+
   const [data, setData] = useState([])
   const [filterData, setFilterData] = useState(data)
   const [searchName, setSearchName] = useState('')
   const [isBtnLoading, setIsBtnLoading] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const [isSearched, setIsSearched] = useState(false)
 
   const location = useLocation()
   const redirState = location?.state
@@ -32,6 +36,9 @@ const Search = () => {
   // const searchString = location.state
 
   const fetchData = async () => {
+    setIsLoading(true)
+    setIsSearched(false)
+    setSearchName('')
     const result = await fetchAllUsers(user?.uid)
     setIsLoading(false)
     setData(result)
@@ -44,6 +51,13 @@ const Search = () => {
       [name]: value,
     }))
   }
+  const handleSearchString = (e) => {
+    if (e.target.value === '') {
+      fetchData()
+      return
+    }
+    setSearchName(e.target.value)
+  }
 
   const searchByName = () => {
     if (searchName !== '') {
@@ -51,8 +65,10 @@ const Search = () => {
         item.name.toLowerCase().includes(searchName.toLowerCase())
       )
       setFilterData(newData)
+      setIsSearched(true)
     } else {
       setFilterData(data)
+      setIsSearched(false)
     }
   }
 
@@ -183,7 +199,7 @@ const Search = () => {
             type='text'
             value={searchName}
             placeholder='Search By Name'
-            onChange={(e) => setSearchName(e.target.value)}
+            onChange={handleSearchString}
           />
           <button
             onClick={handleSearch}
@@ -195,10 +211,11 @@ const Search = () => {
         </div>
         {isLoading ? (
           <p className='loading'>Loading...</p>
-        ) : data.length > 0 ? (
-          <SearchCardList data={searchName.length < 1 ? data : filterData} />
         ) : (
-          <p className='noUsers'>No Users Found</p>
+          <SearchCardList
+            fetchData={fetchData}
+            data={!isSearched ? data : filterData}
+          />
         )}
       </div>
     </div>

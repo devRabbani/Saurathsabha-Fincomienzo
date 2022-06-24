@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaCheck, FaTimes } from 'react-icons/fa'
+import UserContext from '../../context/user'
 import './plancard.style.css'
 const featureList = [
   'Free Profile Making',
@@ -17,7 +18,7 @@ const featureList = [
 
 const PlanCard = ({ item, selected, handleSelect, no }) => {
   // const [btnClick, setBtnClick] = useState(false)
-
+  const { plan } = useContext(UserContext)
   return (
     <div className={`planCard ${item.cls}`}>
       <p className='planName'>{item.name}</p>
@@ -54,7 +55,11 @@ const PlanCard = ({ item, selected, handleSelect, no }) => {
         <div onClick={() => handleSelect(no)} className='viewPlan'>
           {selected === no ? 'Close' : 'View'}
         </div>
-        <div className='planBtn'>Select Plan</div>
+        {item.cls === plan ? (
+          <div className='planActiveBtn'>Active</div>
+        ) : (
+          <button className='planBtn'>Select Plan</button>
+        )}
       </div>
     </div>
   )

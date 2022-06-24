@@ -39,10 +39,10 @@ const LoginModal = () => {
     let verify = new firebase.auth.RecaptchaVerifier('recaptcha', {
       size: 'invisible',
     })
-    console.log(duplicate)
+
     if (duplicate) {
       console.log('Not New User')
-      console.log(isNew)
+
       firebaseApp
         .auth()
         .signInWithPhoneNumber('+91' + number, verify)
@@ -53,7 +53,7 @@ const LoginModal = () => {
           setshow(true)
         })
         .catch((err) => {
-          console.log(err)
+          console.error(err)
           setSuccess('')
           setError('Something went wrong, Try Again!')
           setIsLoading(false)
@@ -72,7 +72,7 @@ const LoginModal = () => {
           setshow(true)
         })
         .catch((err) => {
-          console.log(err)
+          console.error(err)
           setSuccess('')
           setError(err)
           setIsLoading(false)
@@ -104,7 +104,6 @@ const LoginModal = () => {
             },
           })
         } else {
-          console.log(result.user)
           setIsLoading(false)
           setIsModal(false)
           console.log('Success from user signin')
@@ -115,7 +114,7 @@ const LoginModal = () => {
       .catch((err) => {
         setSuccess('')
         setError('OTP Validation Failed, Try Again!')
-        console.log(err)
+        console.error(err)
         setIsLoading(false)
       })
   }

@@ -51,11 +51,10 @@ const ProfilePhotoUpload = ({ data, uid }) => {
         (err) => {
           setIsLoading(false)
           setError('Something went wrong , Try Again !')
-          console.log(err)
+          console.error(err)
         },
         () => {
           uploadTask.snapshot.ref.getDownloadURL().then(async (downloadURL) => {
-            console.log('File available at', downloadURL)
             await updateProfilePic(uid, downloadURL)
             await addAdditionalData(uid, data)
             setIsLoading(false)
@@ -65,25 +64,6 @@ const ProfilePhotoUpload = ({ data, uid }) => {
       )
     }
   }
-
-  // const handleUpload = async () => {
-  //   setError('')
-  //   setIsLoading(true)
-
-  //   uploadProfile(user?.uid, photo)
-  //     .then((url) => {
-  //       console.log('url from handleupload', url)
-  //       // setPhotoUrl(url)
-  //       // await addAdditionalData(user?.uid, data)
-  //       setIsLoading(false)
-  //       // history.push('profile/' + user?.uid)
-  //     })
-  //     .catch((error) => {
-  //       setIsLoading(false)
-  //       setError('Something went wrong , Try Again !')
-  //       console.log(error)
-  //     })
-  // }
 
   const handleOnSkip = async () => {
     setError('')
@@ -95,7 +75,7 @@ const ProfilePhotoUpload = ({ data, uid }) => {
     } catch (error) {
       setIsLoading(false)
       setError('Something went wrong , Try Again !')
-      console.log(error)
+      console.error(error)
     }
   }
 

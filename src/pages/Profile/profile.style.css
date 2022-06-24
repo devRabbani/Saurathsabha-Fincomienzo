@@ -19,7 +19,7 @@
   padding: 33px 70px;
   background-color: #d8d8f8;
   border: 3px solid aliceblue;
-
+  position: relative;
   margin: 35px auto 0;
   border-radius: 7px 7px 0 0;
 }
@@ -28,6 +28,39 @@
   border-left: 2px solid #b4b4e6;
 }
 
+.planBadge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px 15px 10px 20px;
+  border-radius: 0 0 0 20px;
+  color: white;
+  font-size: 1.8rem;
+  box-shadow: -2px 3px 14px rgba(0, 0, 0, 0.395);
+}
+
+.planBadge.basic {
+  background-color: rgb(239, 239, 239);
+  box-shadow: -2px 3px 14px rgba(0, 0, 0, 0.295);
+  color: black;
+}
+
+.planBadge.silver {
+  background-color: royalblue;
+}
+
+.planBadge.gold {
+  background-color: gold;
+  color: #001d09;
+}
+
+.planBadge.platinum {
+  background-color: #001d09;
+}
+
+.planBadge.personalised {
+  background-color: #c726c7;
+}
 .profileWrapper img {
   width: 165px;
   height: 165px;
@@ -268,5 +301,10 @@ h2.aboutBioH2 {
   }
   .linkDetails {
     padding: 20px 15px 40px;
+  }
+
+  .planBadge.personalised {
+    padding: 5px 5px 10px 10px;
+    font-size: 1.7rem;
   }
 }

@@ -26,7 +26,7 @@ const UploadProfileFile = ({ setIsManual, uid }) => {
       (err) => {
         setIsLoading(false)
         alert('Something Went Wrong, Please Try Again')
-        console.log(err)
+        console.error(err)
       },
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then(async (downloadURL) => {

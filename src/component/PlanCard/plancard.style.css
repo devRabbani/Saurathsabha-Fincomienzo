@@ -136,16 +136,24 @@ div.personalised ul.frontUl li:nth-child(-n + 5) {
   background-color: rgb(93, 3, 129);
 }
 
-.planBtn {
+.planBtn,
+.planActiveBtn {
   padding: 5px 10px;
   cursor: pointer;
-  background-color: white;
-  border: 2px solid rgb(180, 65, 225);
   border-radius: 5px;
-
   font-size: 1.6rem;
   flex-basis: 60%;
+}
+
+.planBtn {
+  background-color: white;
+  border: 2px solid rgb(180, 65, 225);
   transition: all 0.2s ease-in-out;
+}
+.planActiveBtn {
+  background-color: rgb(5, 140, 43);
+  border: 2px solid rgb(5, 140, 43);
+  color: white;
 }
 
 .planBtn:hover {

@@ -27,7 +27,8 @@ const Nav = ({ user, setIsModal }) => {
   const handleMenuOff = (e) => {
     if (
       e.target.classList.contains('nav-item') ||
-      e.target.classList.contains('btnLogout')
+      e.target.classList.contains('btnLogout') ||
+      e.target.classList.contains('btnNav')
     ) {
       setHamMenu(false)
     }

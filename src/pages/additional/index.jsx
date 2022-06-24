@@ -8,6 +8,7 @@ import ProfilePhotoUpload from '../../component/ProfilePhotoUpload'
 import SocialInfo from '../../component/SocialInfo'
 import UploadProfileFile from '../../component/UploadProfileFile'
 import UserContext from '../../context/user'
+import useTitle from '../../hooks/useTitle'
 import useTop from '../../hooks/useTop'
 import { getDataByUid } from '../../utils/firebase'
 import './additional.style.css'
@@ -22,6 +23,7 @@ const headingdata = [
 
 const Additional = () => {
   useTop()
+  useTitle('Additional Info | SaurathSabha')
   // States
   const [additionalData, setAdditionalData] = useState({
     bio: '',
@@ -149,7 +151,6 @@ const Additional = () => {
       if (result) {
         setAdditionalData(result)
         setIsEditing(true)
-        console.log('User is editing')
       }
       setIsLoading(false)
     }
@@ -158,7 +159,6 @@ const Additional = () => {
 
   return (
     <div className='additional'>
-      {console.log('additional', additionalData.siblings)}
       <div className='container additionalWrapper'>
         {isManual ? (
           <div className='waitIsManual'>

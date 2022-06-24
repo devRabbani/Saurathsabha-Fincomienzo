@@ -2,13 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../../context/user'
 // import useUser from '../../hooks/useUser'
-import {
-  addToFav2,
-  addToConnect,
-  checkFav,
-  addToFav,
-  removeFav,
-} from '../../utils/firebase'
+import { checkFav, addToFav, removeFav } from '../../utils/firebase'
 import { FaHeart, FaHourglassHalf } from 'react-icons/fa'
 
 const UserCard = ({ item }) => {
@@ -48,7 +42,6 @@ const UserCard = ({ item }) => {
 
   return (
     <div className='searchUserCard'>
-      {console.log('Before click', isHeart)}
       <button disabled={isLoading} onClick={handleClick} className='heart'>
         {isLoading ? (
           <FaHourglassHalf color='grey' />

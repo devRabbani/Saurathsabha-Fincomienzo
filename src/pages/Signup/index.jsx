@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './signup.style.css'
 
 import { registerUser } from '../../utils/firebase'
 import useTop from '../../hooks/useTop'
+import useTitle from '../../hooks/useTitle'
 
 const Signup = ({ location, history }) => {
   useTop()
+  useTitle('Signup | SaurathSabha')
+
   const { phoneNo, uid } = location.state
 
   // For Testing
-
   const [data, setData] = useState({
     name: '',
     email: '',
@@ -49,7 +51,7 @@ const Signup = ({ location, history }) => {
         history.push(`/additional`)
       })
       .catch((error) => {
-        console.log(error.name)
+        console.error(error)
         setIsLoading(false)
         setData({
           name: '',
@@ -65,11 +67,6 @@ const Signup = ({ location, history }) => {
         setError(error.message)
       })
   }
-
-  useEffect(() => {
-    document.title = 'SignUp - SaurathSabha'
-    // if (!location.state) history.push('/')
-  }, [])
 
   return (
     <div className='signUpBg'>

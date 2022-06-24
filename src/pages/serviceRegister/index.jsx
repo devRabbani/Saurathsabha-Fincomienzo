@@ -33,7 +33,7 @@ const ServiceRegister = () => {
     } catch (error) {
       setIsLoading(false)
       setMessage('Something went wrong ,Please try again !')
-      console.log(error)
+      console.error(error)
     }
   }
 
@@ -47,7 +47,7 @@ const ServiceRegister = () => {
     } catch (error) {
       setIsLoading(false)
       setMessage('Something went wrong ,Please try again !')
-      console.log(error)
+      console.error(error)
     }
   }
 
@@ -63,7 +63,6 @@ const ServiceRegister = () => {
 
   return (
     <div className='serviceRegister'>
-      {console.log('Run ')}
       <div className='container'>
         {page === 0 && (
           <form onSubmit={handleCheck}>

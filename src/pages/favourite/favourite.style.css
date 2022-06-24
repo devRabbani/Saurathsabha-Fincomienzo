@@ -1,18 +1,21 @@
 .favListWrapper {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   gap: 30px 20px;
-  padding: 30px 0 90px;
+  padding: 30px 20px 90px;
+  margin-top: 20px;
+  background-color: rgb(209, 209, 209);
 }
 
 .favCard {
   display: flex;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3);
-  gap: 10px;
-  padding: 15px 10px;
+  gap: 20px;
+  padding: 18px 13px;
   align-items: center;
   transition: all 0.3s ease-in-out;
+  background-color: white;
 
   border-radius: 7px;
 }
@@ -22,8 +25,8 @@
 }
 
 .favCard img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 
 .favCard h2 {
@@ -53,10 +56,10 @@
 
 @media screen and (max-width: 500px) {
   .favListWrapper {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
   .favCard {
-    width: 90%;
     gap: 20px;
   }
   .favListEmpty {

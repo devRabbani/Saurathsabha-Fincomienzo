@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin: 40px auto;
+  margin: 30px auto 40px;
   gap: 30px 25px;
 }
 
@@ -16,7 +16,7 @@
   flex-direction: column;
   box-shadow: 2px 2px 5px rgba(71, 71, 71, 0.712);
   border-radius: 7px;
-  padding: 10px 20px 47px;
+  padding: 10px 30px 47px;
   /* margin: auto 20px 30px; */
   border-top: 10px solid rgb(71, 71, 209);
 }
@@ -80,18 +80,32 @@
   border-radius: 7px;
 }
 
+.userCount {
+  text-align: center;
+  font-size: 2.3rem;
+  opacity: 0.5;
+}
+.alluserBtn {
+  color: blue;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 500px) {
   .searchCardList {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px 13px;
+    align-items: stretch;
   }
   .searchUserCard img {
     width: 100px;
     height: 100px;
   }
   .searchCardList .searchUserCard {
-    padding: 10px 10px 47px;
+    padding: 10px 7px 47px;
   }
   .viewBtn {
     font-size: 1.3rem;

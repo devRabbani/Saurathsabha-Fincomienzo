@@ -12,9 +12,11 @@ import {
 import './profile.style.css'
 import Loader from '../../component/Loader'
 import useTop from '../../hooks/useTop'
+import useTitle from '../../hooks/useTitle'
 
 const Profile = () => {
   useTop()
+  useTitle('Profile | SaurathSabha')
 
   const [additionalData, setAdditionalData] = useState()
   const [profileData, setProfileData] = useState()
@@ -25,7 +27,7 @@ const Profile = () => {
 
   const uid = useParams().uid
 
-  const { user } = useContext(UserContext)
+  const { user, plan } = useContext(UserContext)
 
   // const profileData = useUser(uid)
   const isOwn = uid === user?.uid
@@ -37,7 +39,6 @@ const Profile = () => {
     const additional = await getDataByUid(uid, 'additional')
     setAdditionalData(additional)
     setIsLoading(false)
-    console.log(additional, userdata)
   }
 
   const renderInfoPage = () => {
@@ -72,19 +73,23 @@ const Profile = () => {
           <br />
           <strong>Gender : </strong> {profileData.gender}
           <br />
-          <strong>Sibblings : </strong>
-          <br />
-          {additionalData.siblings.map((item, i) => (
-            <span key={i}>
-              <span className='sibbNo'>sibling {i + 1} : </span>
-              <span className='sibbAge'>
-                {item.age} {item.relation}
-              </span>{' '}
-              ---&nbsp;
-              {item.status}
+          {additionalData.siblings.length && (
+            <>
+              <strong>Sibblings : </strong>
               <br />
-            </span>
-          ))}
+              {additionalData.siblings.map((item, i) => (
+                <span key={i}>
+                  <span className='sibbNo'>sibling {i + 1} : </span>
+                  <span className='sibbAge'>
+                    {item.age} {item.relation}
+                  </span>{' '}
+                  ---&nbsp;
+                  {item.status}
+                  <br />
+                </span>
+              ))}
+            </>
+          )}
         </p>
       )
     } else {
@@ -195,6 +200,7 @@ const Profile = () => {
         {profileData && !isLoading ? (
           <div className='mainProfileCard'>
             <div className='profileWrapper'>
+              {isOwn && <div className={`planBadge ${plan}`}>{plan}</div>}
               <img src={profileData.profileUrl} alt='Profile img' />
               <div className='rightSide'>
                 <p>
@@ -219,13 +225,22 @@ const Profile = () => {
               {/* <h1 className='pageHeading'>Additional Info</h1> */}
 
               {!additionalData ? (
-                <div className='noData'>
-                  <p>
-                    Please make your full profile, Additional Information Not
-                    Found!
-                  </p>
-                  <Link to='/additional'>Create Full Profile</Link>
-                </div>
+                isOwn ? (
+                  <div className='noData'>
+                    <p>
+                      Please make your full profile, Additional Information Not
+                      Found!
+                    </p>
+                    <Link to='/additional'>Create Full Profile</Link>
+                  </div>
+                ) : (
+                  <div className='noData'>
+                    <p>
+                      This User has not created full account, No Additional
+                      Information Found!
+                    </p>
+                  </div>
+                )
               ) : (
                 <>
                   <div className='linksDiv'>
