@@ -1,0 +1,272 @@
+.profile {
+  padding-bottom: 105px;
+  background-color: antiquewhite;
+  min-height: 95vh;
+}
+
+.mainProfileCard {
+  border-radius: 7px 7px 20px 20px;
+  box-shadow: 3px 5px 20px -4px #00000030;
+  width: 800px;
+  margin: 0 auto;
+}
+
+.profileWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 33px 70px;
+  background-color: #d8d8f8;
+  border: 3px solid aliceblue;
+
+  margin: 35px auto 0;
+  border-radius: 7px 7px 0 0;
+}
+.profile .rightSide {
+  padding-left: 18px;
+  border-left: 2px solid #b4b4e6;
+}
+
+.profileWrapper img {
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+  margin-right: 18px;
+  border: 5px darkgray outset;
+}
+
+.profileWrapper p {
+  font-size: 1.8rem;
+  line-height: 26px;
+  color: blueviolet;
+}
+
+.profileWrapper p strong {
+  color: darkslateblue;
+}
+/* .profile h2 {
+  text-align: center;
+  font-size: 1.9rem;
+  margin: 15px auto;
+  width: fit-content;
+   display: inline-block; 
+  border-bottom: 2.1px solid blue;
+} 
+
+ .profile h2:after {
+  content: ' ';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background-color: blue;
+  margin: 5px auto 0;
+} */
+
+.additionalInfo .pageHeading {
+  padding-top: 30px;
+}
+/*
+.additionalInfo p {
+  font-size: 1.5rem;
+  text-align: center;
+} */
+
+.noData p {
+  font-size: 1.7rem;
+  margin-top: 35px;
+  text-align: center;
+}
+
+.noData {
+  padding-bottom: 25px;
+}
+.noData a {
+  margin: 15px auto;
+  display: block;
+  padding: 10px 0;
+  background-color: blueviolet;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  width: 200px;
+  border-bottom: 2px solid rgb(82, 1, 158);
+  border-radius: 40px;
+  transition: all 0.3s;
+  box-shadow: 4px 4px 18px -4px rgba(0, 0, 0, 0.295);
+}
+
+.noData a:hover {
+  background-color: rgb(110, 22, 192);
+}
+
+.noData a:active {
+  border-bottom-width: 1px;
+  transform: translateY(2px);
+}
+
+.linksDiv {
+  background-color: rgb(193, 193, 240);
+  display: flex;
+  /* justify-content: center; */
+  gap: 3px;
+  margin: 0 auto;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  /* width: 400px; */
+  /* width: 800px; */
+}
+
+/* .linksDiv::-webkit-scrollbar {
+  height: 5px;
+  background-color: rgb(180, 180, 180);
+}
+.linksDiv::-webkit-scrollbar-button {
+  display: none;
+}
+
+.linksDiv::-webkit-scrollbar-thumb {
+  background-color: rgb(132, 0, 255);
+} */
+
+.linksDiv .menu {
+  padding: 10px 20px;
+  font-size: 1.7rem;
+  white-space: nowrap;
+  background-color: rgb(159, 159, 218);
+  cursor: pointer;
+}
+
+.linksDiv .menu.active {
+  background-color: rgb(58, 58, 58);
+  color: white;
+}
+
+.linkDetails {
+  background-color: rgb(255, 255, 255);
+  padding: 20px 30px 40px;
+  /* box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.274); */
+  border-top: 1px solid rgb(112, 7, 153);
+  border-radius: 0 0 20px 20px;
+  /* width: 800px; */
+  margin: 0 auto;
+}
+
+.linkDetails h2 {
+  margin-top: 0;
+  font-size: 1.9rem;
+  position: relative;
+  display: inline-block;
+}
+
+.linkDetails h2::after {
+  content: ' ';
+  display: block;
+  height: 2px;
+  background-color: blue;
+  margin: 2px 0 20px;
+}
+
+.linkDetails p {
+  font-size: 1.8rem;
+  color: blue;
+}
+
+.linkDetails p strong {
+  background-color: aquamarine;
+  border-radius: 30px;
+  padding: 2px 3px 2px 7px;
+  margin-right: 8px;
+  line-height: 39px;
+  color: teal;
+}
+
+p.myBio {
+  max-width: 1000px;
+  margin-top: -10px;
+  color: blueviolet;
+}
+
+a.menu {
+  margin-left: auto;
+  color: #9a0000;
+}
+h2.aboutBioH2 {
+  margin: 10px 0 -10px;
+}
+
+.socialIconsWrapper {
+  font-size: 2.8rem;
+  margin-left: 6px;
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.socialIconsWrapper a {
+  transition: all 0.3s;
+}
+
+.socialIconsWrapper a.fb:hover {
+  color: #1877f2;
+}
+.socialIconsWrapper a.insta:hover {
+  color: #e4405f;
+}
+.socialIconsWrapper a.twitter:hover {
+  color: #1da1f2;
+}
+.socialIconsWrapper a.linkedin:hover {
+  color: #0a66c2;
+}
+.socialIconsWrapper a.email:hover {
+  color: #bb001b;
+}
+
+.sibbNo {
+  color: black;
+}
+
+.sibbAge {
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 500px) {
+  .mainProfileCard {
+    width: auto;
+  }
+
+  .profileWrapper {
+    padding: 24px 15px;
+    gap: 20px;
+    margin: 15px auto 0;
+  }
+  .profile .rightSide {
+    padding: 18px 0 0 0;
+    border-left: none;
+    border-top: 3px solid #b4b4e6;
+  }
+  .profileWrapper img {
+    width: 190px;
+    height: 190px;
+    margin-right: 0;
+    border: 7px solid rgb(255, 255, 255);
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.395);
+  }
+
+  .linksDiv a.menu {
+    background-color: transparent;
+  }
+  .linksDiv .menu {
+    padding: 10px;
+    text-align: center;
+  }
+  .linksDiv {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .linkDetails {
+    padding: 20px 15px 40px;
+  }
+}

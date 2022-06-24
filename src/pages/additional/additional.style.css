@@ -1,0 +1,261 @@
+.additional form {
+  width: 48%;
+}
+.additional .formHorizontal.triple {
+  align-items: center;
+}
+.additional .formHorizontal.triple select {
+  width: 30%;
+}
+
+.removeSibbs {
+  font-size: 2rem;
+  opacity: 0.6;
+  margin-bottom: -4px;
+  cursor: pointer;
+}
+.additional input,
+.additional select,
+.additional textarea {
+  background-color: antiquewhite;
+}
+
+.additional {
+  background-color: cornsilk;
+  padding: 6px 0 60px;
+}
+
+.additionalWrapper {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  min-height: 95vh;
+  flex-direction: column;
+  gap: 10px;
+}
+.additionalH1 {
+  font-size: 2.4rem;
+  color: blueviolet;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.progress {
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+  margin-left: -10px;
+}
+
+.additional .btn {
+  padding: 9.5px 0px;
+  border: none;
+  margin-top: 12px;
+  outline: none;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: #3434c6;
+  display: block;
+}
+
+.additional .btn.sibb {
+  padding: 9.5px 17px;
+  margin: 7px 0 15px;
+  background-color: #b2801b;
+  box-shadow: 0 0 19px rgba(0, 0, 0, 0.2);
+}
+
+.additional .btn.continue,
+.additional .btn.finish {
+  width: 100%;
+}
+
+.additional .btn.finish {
+  background-color: rgb(116, 28, 199);
+}
+
+.additional .btn:hover:not(.disabled) {
+  background-color: #1a1a94;
+}
+.additional .btn.finish:hover:not(.disabled) {
+  background-color: rgb(104, 6, 161);
+}
+
+.additional .btn.skip {
+  background-color: transparent;
+  border: 1px solid #9b9b9b;
+  color: #4e4b54;
+}
+
+.additional .btn.skip:hover {
+  background-color: #d0d0d0;
+  color: #626060;
+}
+.additional .btn.sibb:hover {
+  background-color: #815807;
+}
+
+.additional .btnDiv .btn {
+  width: 49%;
+}
+
+.additional .btnDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.additional select {
+  padding: 8px 10px;
+}
+
+.additional textarea {
+  padding: 15px;
+}
+
+.additional .btn.disabled {
+  opacity: 0.7 !important;
+}
+
+.photoUploadWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+.additional .avatar {
+  width: 130px;
+  height: 130px;
+  margin: 10px auto;
+  border-radius: 50%;
+  border: 3px gray outset;
+}
+
+.photoUploadWrapper .btnDiv {
+  margin-top: 20px;
+}
+
+.additional .loading {
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 5px 0 14px;
+  opacity: 0.7;
+}
+
+.errorAdditional {
+  font-size: 1.6rem;
+  text-align: center;
+  color: red;
+  margin-top: 18px;
+}
+
+.changeImg {
+  padding: 4px 0px;
+  background-color: slateblue;
+  width: 130px;
+  border: 1px solid black;
+  border-radius: 40px;
+  color: cornsilk;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+/* Upload Profie */
+
+.uploadProfileP {
+  font-size: 1.9rem;
+  width: 55%;
+  text-align: center;
+  margin: 57px 0 10px;
+}
+
+p.or {
+  font-size: 2.3rem;
+  opacity: 0.8;
+  margin: 10px 0 -50px;
+}
+
+form.profileFileDiv {
+  width: auto;
+}
+
+.profileFileDiv input {
+  padding: 6px 7px;
+  font-size: 1.4rem;
+  margin-right: 10px;
+}
+
+.profileFileDiv button {
+  padding: 10px 0;
+  width: 90px;
+  font-size: 1.4rem;
+  background-color: #3434c6;
+  color: #f7f7f7;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+  border-radius: 4px;
+}
+
+.profileFileDiv button:hover {
+  background-color: #1818ac;
+  letter-spacing: 0.8px;
+}
+
+.waitIsManual p {
+  font-size: 2.2rem;
+  width: 70%;
+  margin: 100px auto 0;
+  text-align: center;
+}
+
+.waitIsManual a {
+  margin: 20px auto;
+  background-color: blueviolet;
+  display: block;
+  width: 146px;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.3s;
+  transform: scale(1);
+}
+
+.waitIsManual a:hover {
+  background-color: rgb(95, 18, 168);
+  transform: scale(0.98);
+}
+
+.loadingEditing {
+  font-size: 2rem;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 500px) {
+  .additional form {
+    width: 90%;
+  }
+  .additional .formHorizontal.triple select {
+    width: 26%;
+  }
+  .additional .formHorizontal.triple select:nth-child(3) {
+    width: 34%;
+  }
+  .additional .formHorizontal.habbit {
+    flex-direction: column;
+  }
+  .additional .formHorizontal.habbit > * {
+    width: 100%;
+  }
+  .uploadProfileP {
+    width: 95%;
+  }
+  form.profileFileDiv {
+    display: flex;
+
+    width: 95%;
+  }
+}

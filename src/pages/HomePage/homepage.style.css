@@ -1,0 +1,14 @@
+.sectionHeading {
+  font-size: 3.4rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.sectionHeading::after {
+  width: 200px;
+  content: ' ';
+  display: block;
+  height: 2px;
+  background-color: #4325e7;
+  margin: 5px auto 20px;
+}

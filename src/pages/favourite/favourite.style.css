@@ -1,0 +1,65 @@
+.favListWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px 20px;
+  padding: 30px 0 90px;
+}
+
+.favCard {
+  display: flex;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.3);
+  gap: 10px;
+  padding: 15px 10px;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+
+  border-radius: 7px;
+}
+
+.favCard:hover {
+  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.12);
+}
+
+.favCard img {
+  width: 80px;
+  height: 80px;
+}
+
+.favCard h2 {
+  font-size: 1.8rem;
+}
+
+.favCard p {
+  font-size: 1.2rem;
+}
+
+.favCard a {
+  background-color: blueviolet;
+  color: white;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  border-radius: 7px;
+  margin-top: 10px;
+  display: block;
+  width: fit-content;
+}
+.favListEmpty {
+  text-align: center;
+  opacity: 0.7;
+  margin-top: 150px;
+  font-size: 2.5rem;
+}
+
+@media screen and (max-width: 500px) {
+  .favListWrapper {
+    gap: 20px;
+  }
+  .favCard {
+    width: 90%;
+    gap: 20px;
+  }
+  .favListEmpty {
+    font-size: 2rem;
+  }
+}

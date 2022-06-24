@@ -1,0 +1,59 @@
+.errorMsg,
+.successMsg {
+  margin: 20px 0px -40px;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.errorMsg {
+  color: red;
+}
+.successMsg {
+  color: green;
+}
+
+.signInBtn {
+  width: 100%;
+  cursor: pointer;
+  margin-top: 7px;
+  font-size: 1.7rem;
+  background-color: blueviolet;
+  padding: 8px 20px;
+  color: white;
+  border: none;
+}
+
+.signInBtn.disabled {
+  opacity: 0.5;
+}
+
+.authCard {
+  width: 400px;
+  padding: 5px 20px 50px;
+}
+
+.loginH1 {
+  font-size: 3rem;
+  text-align: center;
+  opacity: 0.7;
+}
+.authCard hr {
+  width: 80px;
+  margin: 5px auto 40px;
+  background-color: blueviolet;
+  border: none;
+  height: 2px;
+}
+@media screen and (max-width: 500px) {
+  .authCard {
+    padding: 0;
+    width: auto;
+  }
+
+  .authCard hr {
+    margin: 5px auto 20px;
+  }
+  .errorMsg,
+  .successMsg {
+    margin: 20px 0px -5px;
+  }
+}

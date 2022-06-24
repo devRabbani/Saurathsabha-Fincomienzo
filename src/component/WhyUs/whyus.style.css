@@ -1,0 +1,83 @@
+.whyus {
+  padding: 80px 0;
+  position: relative;
+  background-color: white;
+}
+.whyusRangoli {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+  width: 300px;
+  height: auto;
+  top: 41px;
+  transform: rotateY(180deg);
+}
+.whyusContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-top: 37px;
+  gap: 20px;
+}
+
+.whycard {
+  padding: 15px;
+  width: 33%;
+  display: flex;
+  box-shadow: 1px 3px 13px 0px rgb(148 147 147 / 61%);
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: white;
+  align-items: center;
+  text-align: center;
+  min-height: 402px;
+}
+
+.whycard img {
+  width: 200px;
+}
+
+.whycard h3 {
+  font-size: 2.3rem;
+  margin: 10px auto;
+  color: rgb(157, 19, 19);
+}
+
+.whycard p {
+  font-size: 1.6rem;
+  text-align: center;
+}
+.whycard span {
+  color: blue;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.imgcard {
+  height: 165px;
+}
+
+@media screen and (max-width: 500px) {
+  .whyus {
+    padding: 50px 0 20px;
+  }
+  .whyusContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 37px;
+    align-items: center;
+    gap: 20px;
+  }
+  .whycard {
+    padding: 20px;
+    width: 90%;
+    display: flex;
+    box-shadow: 1px 3px 13px 0px rgb(148 147 147 / 61%);
+    flex-direction: column;
+    border-radius: 8px;
+    background-color: white;
+    align-items: center;
+    min-height: auto;
+  }
+}

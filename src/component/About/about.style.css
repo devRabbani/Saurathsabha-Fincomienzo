@@ -1,0 +1,116 @@
+.about {
+  padding-bottom: 90px;
+  position: sticky;
+  background-color: #161b19;
+  color: aliceblue;
+
+  top: 62px;
+  z-index: -1;
+}
+
+.aboutContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-height: 94vh;
+}
+
+.rangoliBg {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 200px;
+  height: auto;
+  top: 200px;
+}
+.rightAbout,
+.leftAbout {
+  width: 45%;
+}
+
+/* .rightAbout {
+  width: 5%;
+} */
+.aboutImg {
+  width: 100%;
+  padding: 8px;
+  background-color: aliceblue;
+  box-shadow: 2px 3px 18px 2px rgb(0, 0, 0);
+}
+
+.divHeader {
+  font-size: 3.1rem;
+  font-weight: 400;
+  margin-left: 18px;
+  color: white;
+}
+
+.aboutHeader,
+.serviceHeader {
+  font-size: 4.2rem;
+  line-height: 45px;
+  margin: 0 0 10px;
+}
+.aboutHeader {
+  color: blueviolet;
+}
+
+.aboutHeader::before {
+  content: ' ';
+  display: block;
+  width: 128px;
+  height: 3px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  background-color: tomato;
+}
+
+.aboutPara,
+.servicePara {
+  font-size: 1.7rem;
+  width: 90%;
+}
+
+@media screen and (max-width: 500px) {
+  .leftAbout,
+  .rightAbout {
+    width: 100%;
+  }
+  .aboutContainer,
+  .serviceContainer {
+    flex-direction: column-reverse;
+    padding: 30px 0;
+  }
+  .divHeader {
+    font-size: 3rem;
+    margin-left: 0;
+    text-align: center;
+  }
+  .aboutHeader::before {
+    margin: 0 auto 10px;
+  }
+  .aboutHeader,
+  .serviceHeader {
+    font-size: 3rem;
+    line-height: 37px;
+    text-align: center;
+  }
+
+  .aboutPara,
+  .servicePara {
+    width: 100%;
+    text-align: center;
+  }
+  .about {
+    padding-bottom: 90px;
+    position: relative;
+    background-color: #161b19;
+    color: aliceblue;
+  }
+  .leftAbout {
+    margin-top: 20px;
+    background-color: #161b19a5;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+  }
+}

@@ -1,0 +1,77 @@
+.service {
+  /* padding: 80px 0; */
+  background-color: #ff6347;
+  position: sticky;
+  top: 62px;
+}
+
+.serviceContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 94vh;
+}
+
+/* .imageCard {
+  padding: 30px;
+  background-color: rgb(255, 255, 255);
+  border: 30px solid blueviolet;
+  box-shadow: inset 2px 3px 5px 3px rgb(75 74 74),
+    4px 4px 6px rgb(44 44 44 / 76%);
+} */
+
+.leftService,
+.rightService {
+  width: 45%;
+}
+
+.leftService img {
+  width: 100%;
+}
+
+.service .aboutImg {
+  box-shadow: 2px 3px 18px rgba(0, 0, 0, 0.3);
+}
+.rightService .divHeader::after {
+  content: ' ';
+  height: 3px;
+  display: block;
+  color: rgb(255, 255, 255);
+  width: 160px;
+  margin-bottom: 10px;
+  background-color: blueviolet;
+  margin-left: -18px;
+}
+
+.servicePara {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .leftService,
+  .rightService {
+    width: 100%;
+  }
+  .rightService .divHeader::after {
+    margin: 5px auto 10px;
+  }
+  .serviceContainer {
+    min-height: auto;
+  }
+  .service {
+    position: relative;
+    top: auto;
+    z-index: auto;
+    background-attachment: fixed;
+  }
+
+  .rightService a {
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+  }
+
+  .leftService {
+    margin: 40px 0 30px;
+  }
+}

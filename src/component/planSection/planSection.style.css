@@ -1,0 +1,153 @@
+.planSection {
+  padding: 30px 0;
+  text-align: center;
+  background-color: blueviolet;
+  position: relative;
+}
+
+.planSection .sectionHeading::after {
+  background-color: white;
+  margin-bottom: 40px;
+  width: 140px;
+  height: 1.5px;
+}
+.planCardWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.planSectionCard {
+  background-color: white;
+  padding: 20px 40px;
+  width: 17%;
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(20, 20, 20, 0.274);
+}
+
+.planSectionCard.big {
+  background-color: rgb(13, 17, 68);
+  color: white;
+  width: 20%;
+  padding: 45px 40px;
+  position: relative;
+}
+
+.planSectionCard.big .popular {
+  background-color: rgb(2, 112, 7);
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 7px 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.planSectionCard h3 {
+  font-size: 2.5rem;
+}
+.planSectionCard.big h3 {
+  font-size: 2.8rem;
+}
+
+.planReferBtn {
+  font-size: 1.8rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 30px auto;
+  padding: 10px 0;
+  width: 220px;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: blueviolet;
+  transition: all 0.3s ease-in;
+  border-radius: 7px;
+}
+.planReferBtn svg.arrowSvg {
+  transition: transform 0.3s ease-in;
+}
+.planReferBtn:hover {
+  background-color: rgb(41, 15, 65);
+  background-color: rgb(241, 241, 241);
+  color: rgb(111, 21, 196);
+}
+.planReferBtn:hover svg.arrowSvg {
+  transform: translateX(4px);
+}
+
+.planReferBtn:active {
+  letter-spacing: 0.7px;
+}
+.planSectionCard ul li {
+  font-size: 1.6rem;
+  margin: 3px 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  opacity: 0.4;
+}
+.planSectionCard ul li.include {
+  color: rgb(1, 0, 88);
+  opacity: 1;
+}
+.planSectionCard.big ul li.include {
+  color: rgb(233, 233, 233);
+  opacity: 1;
+}
+.planCardWrapper ul {
+  margin-top: 20px;
+}
+
+.planCardWrapper .planPrice {
+  font-size: 2.1rem;
+  margin: 13px;
+}
+.planSectionCard button {
+  font-size: 1.6rem;
+  padding: 8px 10px;
+  width: 100%;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+  border-bottom: 2px solid rgba(19, 19, 19, 0.822);
+}
+.planSectionCard button:hover {
+  transform: translateY(1.2px);
+  border-bottom: 2px solid blueviolet;
+}
+
+.planSectionCard button:active {
+  outline: rgb(187, 125, 245) solid;
+}
+.planSectionCard.big button:hover {
+  transform: translateY(0px);
+  background-color: blueviolet;
+  color: white;
+}
+
+.planSectionCard.big button {
+  width: 90%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-bottom: none;
+}
+
+@media screen and (max-width: 500px) {
+  .planCardWrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .planSectionCard,
+  .planSectionCard.big {
+    width: 80%;
+  }
+}

@@ -1,0 +1,88 @@
+.formHorizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.formHorizontal select,
+.twoCol select {
+  padding: 10px;
+}
+
+.formHorizontal .form-group {
+  width: 48%;
+}
+
+.formHorizontal.triple .form-group {
+  width: 35%;
+}
+.formHorizontal.triple .form-group:nth-child(2) {
+  width: 25%;
+}
+
+.profilePic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: -15px auto 15px;
+}
+.profilePic img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 3px solid rgb(212, 212, 212);
+  margin-bottom: 7px;
+}
+
+/* New Styles For Signup */
+
+.signUp h1::after {
+  display: block;
+  content: ' ';
+  width: 120px;
+  height: 2.3px;
+  background-color: blue;
+  margin: 4px auto 0;
+}
+
+.signUp .form-group {
+  margin-bottom: 15px;
+}
+
+.signUp {
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.signUpCard {
+  background-color: white;
+  padding: 10px 40px 50px;
+  width: 520px;
+  box-shadow: 5px 5px 20px -4px rgba(0, 0, 0, 0.288);
+  border-radius: 5px;
+  border-top: 5px solid blueviolet;
+}
+.signUpBg {
+  background-color: blanchedalmond;
+}
+
+.signUp .errorMsg {
+  margin-bottom: -25px;
+}
+
+.formIntro {
+  font-size: 2rem;
+  text-align: center;
+  margin: 20px 0;
+}
+
+@media screen and (max-width: 500px) {
+  .signUpCard {
+    width: 100%;
+    padding: 10px 15px 40px;
+  }
+}

@@ -1,0 +1,140 @@
+.backDrop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 19;
+  background-color: rgba(0, 0, 0, 0.739);
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(2px);
+}
+
+.modalCard {
+  padding: 40px;
+  /* width: auto; */
+  max-width: 1400px;
+  margin-top: 50px;
+  background-color: rgb(255, 255, 255);
+  z-index: 20;
+  box-shadow: 1px 3px 5px rgb(0, 0, 0);
+  position: relative;
+  border: 15px solid rgb(220, 227, 255);
+}
+
+.modalCard.small {
+  width: 40%;
+  padding: 30px 40px 20px;
+}
+
+.headlineCentre {
+  text-align: center;
+  font-size: 2rem;
+  line-break: auto;
+  margin-bottom: 20px;
+}
+.headtitle {
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin-bottom: 7px;
+}
+.device,
+.modalCard li {
+  font-size: 1.6rem;
+}
+.device {
+  margin: 8px auto 4px;
+}
+.modalCard li {
+  margin: 5px auto;
+}
+.notifiCation {
+  color: rgb(255, 0, 64);
+  font-weight: 600;
+}
+.cancelIcon svg {
+  /* color: rgb(59, 59, 59); */
+  color: rgb(89, 0, 172);
+  font-size: 3rem;
+}
+.cancelIcon {
+  position: absolute;
+  right: 13px;
+  top: 11px;
+  cursor: pointer;
+}
+
+.small {
+  text-align: center;
+}
+
+.headLineInfo {
+  font-size: 2.4rem;
+}
+
+.headLineCredit {
+  font-size: 2rem;
+  margin: 17px auto 7px;
+}
+.small hr {
+  width: 200px;
+  margin: 2px auto 10px;
+}
+.creditsA {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.creditsA a {
+  font-size: 1.6rem;
+  color: rgb(63, 11, 11);
+  margin: auto 5px;
+}
+
+.small h3 {
+  margin-top: 25px;
+  font-size: 1.3rem;
+}
+
+.contactUs {
+  font-weight: 600;
+}
+
+.cwb {
+  font-weight: 700;
+  color: rgb(32, 9, 0);
+}
+
+.small p {
+  font-size: 1.6rem;
+}
+
+.weblink {
+  color: blue;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 780px) {
+  .modalCard.small {
+    width: 90%;
+    padding: 20px;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .modalCard {
+    width: 90%;
+    padding: 50px 18px 30px;
+    margin-top: 0;
+    border-width: 10px;
+  }
+  .headlineCentre {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+}
