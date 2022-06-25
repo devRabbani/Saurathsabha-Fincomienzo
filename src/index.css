@@ -85,6 +85,36 @@ input {
   margin: 40px auto;
 }
 
+.hideBlur,
+.hideBlurEmail {
+  position: relative;
+  z-index: 1;
+  padding: 4px 10px;
+  /* opacity: 0.6; */
+}
+.hideBlurEmail {
+  font-size: 1rem;
+}
+
+.hideBlurEmail::after,
+.hideBlur::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(109, 79, 79);
+  border-radius: 10px;
+  filter: blur(5px);
+  z-index: 3;
+}
+
+.hideBlurS {
+  font-size: 1.7rem;
+  color: red;
+}
+
 @media screen and (max-width: 500px) {
   .container {
     width: 95%;

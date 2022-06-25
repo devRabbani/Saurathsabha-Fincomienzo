@@ -13,6 +13,7 @@ import './profile.style.css'
 import Loader from '../../component/Loader'
 import useTop from '../../hooks/useTop'
 import useTitle from '../../hooks/useTitle'
+import roles from '../../utils/roles'
 
 const Profile = () => {
   useTop()
@@ -28,6 +29,10 @@ const Profile = () => {
   const uid = useParams().uid
 
   const { user, plan } = useContext(UserContext)
+  const isPhoto = roles[plan?.plan]?.photo
+  const isAdditional = roles[plan?.plan]?.additional
+  const isSLinks = roles[plan?.plan]?.social
+  const isVLinks = roles[plan?.plan]?.video
 
   // const profileData = useUser(uid)
   const isOwn = uid === user?.uid
@@ -73,7 +78,7 @@ const Profile = () => {
           <br />
           <strong>Gender : </strong> {profileData.gender}
           <br />
-          {additionalData.siblings.length && (
+          {additionalData.siblings.length > 0 && (
             <>
               <strong>Sibblings : </strong>
               <br />
@@ -117,72 +122,85 @@ const Profile = () => {
             additionalData.email) && (
             <h2 className='aboutBioH2'>Social Links :</h2>
           )}
-
-          {additionalData.videolink && (
+          {isVLinks ? (
+            additionalData.videolink && (
+              <p>
+                <strong>Video Profile Link : </strong>{' '}
+                <a
+                  href={additionalData.videolink}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Go To Video Link
+                </a>
+              </p>
+            )
+          ) : (
             <p>
               <strong>Video Profile Link : </strong>{' '}
-              <a
-                href={additionalData.videolink}
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Go To Video Link
-              </a>
+              <span className='hideBlur'>Upgrade Your plan</span>
             </p>
           )}
-
-          <div className='socialIconsWrapper'>
-            {additionalData.facebook && (
-              <a
-                href={additionalData.facebook}
-                className='fb'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FaFacebook />
-              </a>
-            )}
-            {additionalData.twitter && (
-              <a
-                href={additionalData.twitter}
-                className='twitter'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FaTwitter />
-              </a>
-            )}
-            {additionalData.instagram && (
-              <a
-                href={additionalData.instagram}
-                className='insta'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FaInstagram />
-              </a>
-            )}
-            {additionalData.linkedin && (
-              <a
-                href={additionalData.linkedin}
-                className='linkedin'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FaLinkedin />
-              </a>
-            )}
-            {additionalData.email && (
-              <a
-                href={additionalData.email}
-                target='_blank'
-                className='email'
-                rel='noopener noreferrer'
-              >
-                <FaEnvelope />
-              </a>
-            )}
-          </div>
+          {isSLinks ? (
+            <div className='socialIconsWrapper'>
+              {additionalData.facebook && (
+                <a
+                  href={additionalData.facebook}
+                  className='fb'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <FaFacebook />
+                </a>
+              )}
+              {additionalData.twitter && (
+                <a
+                  href={additionalData.twitter}
+                  className='twitter'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <FaTwitter />
+                </a>
+              )}
+              {additionalData.instagram && (
+                <a
+                  href={additionalData.instagram}
+                  className='insta'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <FaInstagram />
+                </a>
+              )}
+              {additionalData.linkedin && (
+                <a
+                  href={additionalData.linkedin}
+                  className='linkedin'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <FaLinkedin />
+                </a>
+              )}
+              {additionalData.email && (
+                <a
+                  href={additionalData.email}
+                  target='_blank'
+                  className='email'
+                  rel='noopener noreferrer'
+                >
+                  <FaEnvelope />
+                </a>
+              )}
+            </div>
+          ) : (
+            <div className='socialIconsWrapper'>
+              <span className='hideBlurS'>
+                Upgrade your plan to see social links
+              </span>
+            </div>
+          )}
         </>
       )
     }
@@ -203,7 +221,10 @@ const Profile = () => {
               {isOwn && (
                 <div className={`planBadge ${plan?.plan}`}>{plan?.plan}</div>
               )}
-              <img src={profileData.profileUrl} alt='Profile img' />
+              <img
+                src={isOwn || isPhoto ? profileData.profileUrl : '/noimage.png'}
+                alt='Profile img'
+              />
               <div className='rightSide'>
                 <p>
                   <strong>NAME : </strong> {profileData.name}
@@ -214,7 +235,12 @@ const Profile = () => {
                   <br />
                   <strong>City : </strong> {profileData.city}
                   <br />
-                  <strong>Email : </strong> {profileData.email}
+                  <strong>Email : </strong>{' '}
+                  {isSLinks ? (
+                    profileData.email
+                  ) : (
+                    <span className='hideBlurEmail'>Upgrade plan</span>
+                  )}
                   <br />
                   <strong>Employement : </strong> {profileData.employement}
                   <br />
@@ -225,8 +251,12 @@ const Profile = () => {
             </div>
             <div className='additionalInfo'>
               {/* <h1 className='pageHeading'>Additional Info</h1> */}
-
-              {!additionalData ? (
+              {!isAdditional && !isOwn ? (
+                <div className='noData'>
+                  <p>Upgrade your plan to view Additional informations.</p>
+                  <Link to='/plans'>View Plans</Link>
+                </div>
+              ) : !additionalData ? (
                 isOwn ? (
                   <div className='noData'>
                     <p>

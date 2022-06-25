@@ -163,7 +163,7 @@ const Additional = () => {
         {isManual ? (
           <div className='waitIsManual'>
             <p>
-              You succesfull uploaded , please wait for our backend team to
+              You succesfullyy uploaded , please wait for our backend team to
               update your your profile
             </p>
             <Link to='/'>Got to Home</Link>

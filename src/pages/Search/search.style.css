@@ -91,6 +91,7 @@
   .filterWrapper select {
     padding: 8px 10px;
     font-size: 1.2rem;
+    background-color: transparent !important;
   }
 
   .filterWrapper,
