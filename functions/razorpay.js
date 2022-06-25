@@ -3,7 +3,7 @@ require('dotenv').config()
 
 const razorpay = new Razorpay({
   key_id: process.env.REACT_APP_RZPAY_KEY,
-  key_secret: process.env.REACT_APP_RZPAY_SECRET,
+  key_secret: process.env.RZPAY_SECRET,
 })
 
 exports.handler = async function (event) {

@@ -236,7 +236,7 @@ const Profile = () => {
                   <strong>City : </strong> {profileData.city}
                   <br />
                   <strong>Email : </strong>{' '}
-                  {isSLinks ? (
+                  {isSLinks || isOwn ? (
                     profileData.email
                   ) : (
                     <span className='hideBlurEmail'>Upgrade plan</span>

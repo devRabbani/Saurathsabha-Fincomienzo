@@ -19,8 +19,8 @@ const loadRazorpay = () => {
 }
 
 export const showRazorpay = async (plan, name, number, uid) => {
-  const result = await loadRazorpay()
-  if (!result) {
+  const loadedscript = await loadRazorpay()
+  if (!loadedscript) {
     alert('Error while loading the script , Please try again')
     return
   }
@@ -30,6 +30,7 @@ export const showRazorpay = async (plan, name, number, uid) => {
   }).then((res) => res.json())
 
   const { amount, id } = response
+  console.log(response)
 
   const options = {
     key: process.env.REACT_APP_RZPAY_KEY,
