@@ -417,3 +417,26 @@ export const getFavList = async (userId) => {
     return []
   }
 }
+
+export const changePlan = async (uid, data, plan, amount) => {
+  await firebaseApp.firestore().collection('users').doc(uid).set(
+    {
+      plan,
+      planDate: Date.now(),
+    },
+    {
+      merge: true,
+    }
+  )
+  await firebaseApp
+    .firestore()
+    .collection('users')
+    .doc(uid)
+    .collection('orders')
+    .add({
+      ...data,
+      plan,
+      amount: parseInt(amount / 100),
+      timestamp: Date.now(),
+    })
+}

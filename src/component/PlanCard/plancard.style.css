@@ -15,6 +15,29 @@
   background-color: white;
 }
 
+.myPlan {
+  background-color: white;
+  padding: 20px 30px;
+  max-width: 400px;
+  margin: 0 auto 30px;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.24);
+  border-radius: 7px;
+}
+
+.myPlan p {
+  font-size: 1.8rem;
+}
+.myPlan h3 {
+  font-size: 2.3rem;
+  /* text-align: center; */
+  margin-bottom: 10px;
+}
+
+.boldPlan {
+  font-weight: 700;
+  color: rgb(4, 70, 48);
+}
+
 .planCard:hover {
   transform: translateY(-3px);
   border-bottom: 4px solid rgb(102, 102, 102);
@@ -136,6 +159,10 @@ div.personalised ul.frontUl li:nth-child(-n + 5) {
   background-color: rgb(93, 3, 129);
 }
 
+.viewPlan.viewFull {
+  flex-basis: 100%;
+}
+
 .planBtn,
 .planActiveBtn {
   padding: 5px 10px;
@@ -215,4 +242,10 @@ ul.detailedUl li svg {
 ul.detailedUl li.showTick {
   filter: opacity(1);
   color: green;
+}
+
+@media screen and (max-width: 500px) {
+  .myPlan {
+    width: 95%;
+  }
 }

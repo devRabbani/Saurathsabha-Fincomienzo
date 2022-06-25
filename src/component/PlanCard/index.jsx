@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import UserContext from '../../context/user'
+import { showRazorpay } from '../../utils/razorpay'
 import './plancard.style.css'
 const featureList = [
   'Free Profile Making',
@@ -16,9 +17,19 @@ const featureList = [
   'Personalized Sidhhant',
 ]
 
-const PlanCard = ({ item, selected, handleSelect, no }) => {
+const PlanCard = ({ item, selected, handleSelect, no, plan }) => {
   // const [btnClick, setBtnClick] = useState(false)
-  const { plan } = useContext(UserContext)
+  const { user } = useContext(UserContext)
+
+  const handleClick = async (e) => {
+    e.preventDefault()
+    try {
+      showRazorpay(item.cls, user.displayName, user.phoneNumber, user.uid)
+    } catch (error) {
+      alert('Please Try Again Something Went Wrong')
+      console.error(error)
+    }
+  }
   return (
     <div className={`planCard ${item.cls}`}>
       <p className='planName'>{item.name}</p>
@@ -52,13 +63,20 @@ const PlanCard = ({ item, selected, handleSelect, no }) => {
 
       <p className='planDuration'>{item.duration}</p>
       <div className='planBtnDiv'>
-        <div onClick={() => handleSelect(no)} className='viewPlan'>
+        <div
+          onClick={() => handleSelect(no)}
+          className={`viewPlan ${item.cls === 'basic' ? 'viewFull' : ''}`}
+        >
           {selected === no ? 'Close' : 'View'}
         </div>
         {item.cls === plan ? (
           <div className='planActiveBtn'>Active</div>
         ) : (
-          <button className='planBtn'>Select Plan</button>
+          item.cls !== 'basic' && (
+            <button onClick={handleClick} className='planBtn'>
+              Select Plan
+            </button>
+          )
         )}
       </div>
     </div>

@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState } from 'react'
 import PlanCard from '../../component/PlanCard'
+import UserContext from '../../context/user'
 
 import useTitle from '../../hooks/useTitle'
 import useTop from '../../hooks/useTop'
@@ -81,6 +82,8 @@ const Plans = () => {
   useTop()
   useTitle('Plans | SaurathSabha')
 
+  const { plan } = useContext(UserContext)
+
   const [selected, setSelected] = useState(null)
   const handleSelect = (i) => {
     if (selected === i) {
@@ -90,9 +93,69 @@ const Plans = () => {
     }
   }
 
+  const renderPlanInfo = () => {
+    const month = 1000 * 60 * 60 * 24 * 30
+    const silver = 3 * month
+    const gold = 6 * month
+    if (
+      !plan?.planDate ||
+      plan?.plan === 'platinum' ||
+      plan?.plan === 'personalised'
+    ) {
+      return (
+        <>
+          <p>
+            Currently Active :
+            <span className='boldPlan'> {plan?.plan.toUpperCase()}</span>
+          </p>
+          <p>
+            Ends in : <span className='boldPlan'> Unlimited Access</span>
+          </p>
+        </>
+      )
+    } else if (plan?.plan === 'silver') {
+      return (
+        <>
+          <p>
+            Currently Active :
+            <span className='boldPlan'> {plan?.plan.toUpperCase()}</span>
+          </p>
+          <p>
+            Ends in :
+            <span className='boldPlan'>
+              {' '}
+              {new Date(plan?.planDate + silver).toDateString()}
+            </span>
+          </p>
+        </>
+      )
+    } else if (plan?.plan === 'gold') {
+      return (
+        <>
+          <p>
+            Currently Active :
+            <span className='boldPlan'> {plan?.plan.toUpperCase()}</span>
+          </p>
+          <p>
+            Ends in :{' '}
+            <span className='boldPlan'>
+              {new Date(plan?.planDate + gold).toDateString()}
+            </span>
+          </p>
+        </>
+      )
+    } else {
+      return <p>No data Found</p>
+    }
+  }
+
   return (
     <div className='planPage'>
       <div className='container pageBody'>
+        <div className='myPlan'>
+          <h3>My Plan</h3>
+          {renderPlanInfo()}
+        </div>
         <h1 className='pageHeading'>Plans</h1>
         <div className='planWrapper'>
           {plansList.map((item, i) => (
@@ -102,6 +165,7 @@ const Plans = () => {
               selected={selected}
               no={i}
               handleSelect={handleSelect}
+              plan={plan?.plan}
             />
           ))}
         </div>

@@ -200,7 +200,9 @@ const Profile = () => {
         {profileData && !isLoading ? (
           <div className='mainProfileCard'>
             <div className='profileWrapper'>
-              {isOwn && <div className={`planBadge ${plan}`}>{plan}</div>}
+              {isOwn && (
+                <div className={`planBadge ${plan?.plan}`}>{plan?.plan}</div>
+              )}
               <img src={profileData.profileUrl} alt='Profile img' />
               <div className='rightSide'>
                 <p>
