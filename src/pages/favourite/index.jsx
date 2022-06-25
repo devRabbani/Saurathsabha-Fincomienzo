@@ -5,7 +5,9 @@ import UserContext from '../../context/user'
 import useTitle from '../../hooks/useTitle'
 import useTop from '../../hooks/useTop'
 import { getFavList } from '../../utils/firebase'
+import roles from '../../utils/roles'
 import './favourite.style.css'
+import toast from 'react-hot-toast'
 
 const Favourite = () => {
   useTop()
@@ -13,7 +15,17 @@ const Favourite = () => {
   const [userList, setUserLists] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
-  const { user } = useContext(UserContext)
+  const { user, plan } = useContext(UserContext)
+  const isPhoto = roles[plan?.plan]?.photo
+  const isView = roles[plan?.plan]?.view
+
+  const handleView = (e) => {
+    if (!isView) {
+      e.preventDefault()
+      toast.error('Upgrad your plan to view profile')
+      return
+    }
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +46,10 @@ const Favourite = () => {
         <div className='favListWrapper'>
           {userList.map((item, i) => (
             <div key={i} className='favCard'>
-              <img src='/male.png' alt='User Pic' />
+              <img
+                src={isPhoto ? item.profileUrl : '/noimage.png'}
+                alt='User Pic'
+              />
               <div className='favInfo'>
                 <h2>{item.name}</h2>
                 <p>
@@ -42,7 +57,9 @@ const Favourite = () => {
                   <br />
                   Employement : {item.employement}
                 </p>
-                <Link to={`/profile/${item.userId}`}>View Profile</Link>
+                <Link onClick={handleView} to={`/profile/${item.userId}`}>
+                  View Profile
+                </Link>
               </div>
             </div>
           ))}

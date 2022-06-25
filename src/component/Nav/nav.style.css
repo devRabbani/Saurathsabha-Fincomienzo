@@ -204,7 +204,6 @@ div.logo {
     transition: all 0.3s ease-in-out;
     border-top: 1px solid rgb(202, 202, 202);
     padding-top: 13px;
-    width: 100%;
     text-align: center;
     font-size: 1.9rem;
     color: #830305;
@@ -221,5 +220,12 @@ div.logo {
 
   .nav-item.bottomBorder {
     color: #830305;
+  }
+
+  .mobileMenu > * {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    /* justify-content: center; */
   }
 }
