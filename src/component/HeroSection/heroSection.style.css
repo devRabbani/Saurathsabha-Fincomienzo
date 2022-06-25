@@ -174,7 +174,7 @@ label span {
   .formCard {
     width: 100%;
     padding: 30px 20px;
-    background-color: #7f7a7a61;
+    background-color: #8f8f8f61;
     backdrop-filter: blur(13px);
   }
   .formHorizontal select {
@@ -183,11 +183,11 @@ label span {
     /* color: black; */
   }
 
-  input,
+  .formCard input,
   .css-1s2u09g-control,
   .formCard select {
-    background-color: #7f7a7a61 !important;
-    border-color: rgb(118, 118, 118) !important;
+    background-color: transparent !important;
+    border-color: rgb(0, 0, 0) !important;
   }
   .css-14el2xx-placeholder,
   input::placeholder {

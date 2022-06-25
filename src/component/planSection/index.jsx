@@ -7,7 +7,7 @@ const PlanSection = () => {
     <section
       className='planSection'
       style={{
-        backgroundImage: `linear-gradient(to bottom right,#43175774,#0000bb5c),url(${bg})`,
+        backgroundImage: `linear-gradient(to bottom right,#43175741,#0000bb29),url(${bg})`,
       }}
     >
       <h3 className='sectionHeading'>Plans</h3>

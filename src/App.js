@@ -71,7 +71,9 @@ function App() {
             </ProtectedRoute>
           </Switch>
         </div>
-        <Footer />
+        <p className='footerBottom'>
+          Saurath Sabha Inc © 2021 All rights are reserved.
+        </p>
         {/* {isModal && (
         <Modal setIsModal={setIsModal}>
           <LoginModal />

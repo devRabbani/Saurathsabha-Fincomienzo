@@ -1,3 +1,6 @@
+.searchWrapper {
+  padding-bottom: 40px;
+}
 .filterWrapper,
 .searchDiv {
   display: flex;
