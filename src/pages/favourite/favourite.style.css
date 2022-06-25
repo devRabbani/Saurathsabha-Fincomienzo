@@ -30,7 +30,8 @@
 }
 
 .favCard h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
+  margin-bottom: 5px;
 }
 
 .favCard p {
@@ -41,7 +42,7 @@
   background-color: blueviolet;
   color: white;
   padding: 5px 10px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   border-radius: 7px;
   margin-top: 10px;
   display: block;

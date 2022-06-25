@@ -4,8 +4,9 @@ import UserContext from '../../context/user'
 // import useUser from '../../hooks/useUser'
 import { checkFav, addToFav, removeFav } from '../../utils/firebase'
 import { FaHeart, FaHourglassHalf } from 'react-icons/fa'
+import toast from 'react-hot-toast'
 
-const UserCard = ({ item }) => {
+const UserCard = ({ item, isPhoto, isView }) => {
   const { user } = useContext(UserContext)
   // const userData = useUser(user.uid);
   const [isLoading, setIsLoading] = useState(true)
@@ -31,6 +32,13 @@ const UserCard = ({ item }) => {
     setIsLoading(false)
   }
 
+  const handleView = (e) => {
+    if (!isView) {
+      e.preventDefault()
+      toast.error('Upgrade your plan to view profiles')
+    }
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const result = await checkFav(uid, item.userId)
@@ -49,7 +57,7 @@ const UserCard = ({ item }) => {
           <FaHeart color={isHeart ? 'red' : 'grey'} />
         )}
       </button>
-      <img src={item.profileUrl} alt='user pic' />
+      <img src={isPhoto ? item.profileUrl : '/noimage.png'} alt='user pic' />
       <h2>{item.name}</h2>
       <p>
         Age : {item.age} | City : {item.city}
@@ -81,7 +89,11 @@ const UserCard = ({ item }) => {
           Add to Favorite
         </button>
       </div> */}
-      <Link to={`/profile/${item.userId}`} className='viewBtn'>
+      <Link
+        onClick={handleView}
+        to={`/profile/${item.userId}`}
+        className='viewBtn'
+      >
         View Profile
       </Link>
     </div>

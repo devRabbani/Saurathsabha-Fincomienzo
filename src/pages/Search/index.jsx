@@ -4,7 +4,9 @@ import SearchCardList from '../../component/SearchCardList'
 import UserContext from '../../context/user'
 import useTitle from '../../hooks/useTitle'
 import { fetchAllUsers, fetchFilterData } from '../../utils/firebase'
+import roles from '../../utils/roles'
 import './search.style.css'
+import toast from 'react-hot-toast'
 
 const Search = () => {
   useTitle('Search | SaurathSabha')
@@ -15,7 +17,11 @@ const Search = () => {
   const [isBtnLoading, setIsBtnLoading] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [isSearched, setIsSearched] = useState(false)
+  const { user, plan } = useContext(UserContext)
 
+  const isSearch = roles[plan?.plan]?.search
+  const isSFilter = roles[plan?.plan]?.social
+  const isVFilter = roles[plan?.plan]?.video
   const location = useLocation()
   const redirState = location?.state
 
@@ -32,7 +38,6 @@ const Search = () => {
   const { age, employement, profileFor, city, gender, isSocial, isVideo } =
     filters
 
-  const { user } = useContext(UserContext)
   // const searchString = location.state
 
   const fetchData = async () => {
@@ -60,6 +65,10 @@ const Search = () => {
   }
 
   const searchByName = () => {
+    if (!isSearch) {
+      toast.error('Upgrade your plane to search')
+      return
+    }
     if (searchName !== '') {
       const newData = data.filter((item) =>
         item.name.toLowerCase().includes(searchName.toLowerCase())
@@ -74,22 +83,29 @@ const Search = () => {
 
   const handleFilter = async () => {
     setIsBtnLoading(true)
-    try {
-      const result = await fetchFilterData(
-        age,
-        city.trim().toLowerCase(),
-        employement,
-        profileFor,
-        gender,
-        isSocial,
-        isVideo,
-        user?.uid
-      )
-      setData(result)
-    } catch (error) {
-      console.log('Something went wrong', error)
+    if (!isSearch) {
+      toast.error('Upgrade your plane to search')
+    } else if (!isSFilter && isSocial) {
+      toast.error('Upgrade plane to search by social')
+    } else if (!isVFilter && isVideo) {
+      toast.error('Upgrade plane to search by video')
+    } else {
+      try {
+        const result = await fetchFilterData(
+          age,
+          city.trim().toLowerCase(),
+          employement,
+          profileFor,
+          gender,
+          isSocial,
+          isVideo,
+          user?.uid
+        )
+        setData(result)
+      } catch (error) {
+        console.log('Something went wrong', error)
+      }
     }
-
     setIsBtnLoading(false)
   }
 
