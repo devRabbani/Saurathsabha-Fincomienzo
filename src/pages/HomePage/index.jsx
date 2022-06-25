@@ -35,12 +35,18 @@ const HomePage = ({ isModal, setIsModal }) => {
     }
   }, [location])
 
+  const handleTest = async () => {
+    const res = await fetch('/api/hello').then((t) => t.json())
+    console.log(res)
+  }
+
   return (
     <>
       <HeroSection />
       <WhyUs />
       {/* <Featured /> */}
       <About />
+      <button onClick={handleTest}>Test</button>
       <Services />
 
       <TestimonyGrid />

@@ -106,7 +106,7 @@ const Plans = () => {
         <>
           <p>
             Currently Active :
-            <span className='boldPlan'> {plan?.plan.toUpperCase()}</span>
+            <span className='boldPlan'> {plan?.plan?.toUpperCase()}</span>
           </p>
           <p>
             Ends in : <span className='boldPlan'> Unlimited Access</span>
@@ -118,7 +118,7 @@ const Plans = () => {
         <>
           <p>
             Currently Active :
-            <span className='boldPlan'> {plan?.plan.toUpperCase()}</span>
+            <span className='boldPlan'> {plan?.plan?.toUpperCase()}</span>
           </p>
           <p>
             Ends in :
@@ -134,7 +134,7 @@ const Plans = () => {
         <>
           <p>
             Currently Active :
-            <span className='boldPlan'> {plan?.plan.toUpperCase()}</span>
+            <span className='boldPlan'> {plan?.plan?.toUpperCase()}</span>
           </p>
           <p>
             Ends in :{' '}
