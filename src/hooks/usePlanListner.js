@@ -10,7 +10,12 @@ export default function usePlanListener(uid) {
       .firestore()
       .collection('users')
       .doc(uid)
-      .onSnapshot((doc) => setUser(doc.data()?.plan))
+      .onSnapshot((doc) =>
+        setUser({
+          plan: doc.data()?.plan,
+          planDate: doc.data()?.planDate,
+        })
+      )
     return () => listner()
   }, [firebaseApp])
 
