@@ -43,15 +43,10 @@ function App() {
             </Route>
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/service/register' component={ServiceRegister} />
-            <ProtectedRoute user={user} path='/search' exact pathname='/search'>
+            <ProtectedRoute user={user} path='/search' exact>
               <Search />
             </ProtectedRoute>
-            <ProtectedRoute
-              user={user}
-              exact
-              path='/profile/:uid'
-              pathname='/profile/:uid'
-            >
+            <ProtectedRoute user={user} exact path='/profile/:uid'>
               <Profile />
             </ProtectedRoute>
             {/* <ProtectedRoute
@@ -62,29 +57,16 @@ function App() {
             >
               <EditAdditional />
             </ProtectedRoute> */}
-            <ProtectedRoute
-              exact
-              user={user}
-              path='/favourite'
-              pathname='/favourite'
-            >
+            <ProtectedRoute exact user={user} path='/favourite'>
               <Favourite />
             </ProtectedRoute>
-            <ProtectedRoute user={user} path='/plans' pathname='/plans'>
+            <ProtectedRoute user={user} path='/plans'>
               <Plans />
             </ProtectedRoute>
-            <ProtectedRoute
-              user={user}
-              path='/notification'
-              pathname='/notification'
-            >
+            <ProtectedRoute user={user} path='/notification'>
               <Notification />
             </ProtectedRoute>
-            <ProtectedRoute
-              user={user}
-              path='/additional'
-              pathname='/additional'
-            >
+            <ProtectedRoute user={user} path='/additional'>
               <Additional />
             </ProtectedRoute>
           </Switch>
