@@ -16,6 +16,7 @@ import ServiceRegister from './pages/serviceRegister'
 import Favourite from './pages/favourite'
 import Notification from './pages/notification'
 import usePlanListener from './hooks/usePlanListner'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const { user } = useAuthListener()
@@ -34,6 +35,7 @@ function App() {
     <UserContext.Provider value={{ user, plan }}>
       <ModalContext.Provider value={{ isModal, setIsModal }}>
         <Nav setIsModal={setIsModal} user={user} />
+        <Toaster />
         <div className='pageBody'>
           <Switch>
             <Route exact path='/'>
