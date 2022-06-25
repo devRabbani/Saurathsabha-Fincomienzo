@@ -35,7 +35,9 @@ const PlanSection = () => {
             </li>
           </ul>
           <p className='planPrice'>₹ 0</p>
-          <button>Select Plan</button>
+          <Link to='/plans'>
+            <button>Select Plan</button>
+          </Link>
         </div>
         <div className='planSectionCard big'>
           <div className='popular'>
@@ -65,7 +67,9 @@ const PlanSection = () => {
             </li>
           </ul>
           <p className='planPrice'>₹ 3100</p>
-          <button>Select Plan</button>
+          <Link to='/plans'>
+            <button>Select Plan</button>
+          </Link>
         </div>
         <div className='planSectionCard'>
           <h3>Platinum</h3>
@@ -92,7 +96,9 @@ const PlanSection = () => {
             </li>
           </ul>
           <p className='planPrice'>₹ 11000</p>
-          <button>Select Plan</button>
+          <Link to='/plans'>
+            <button>Select Plan</button>
+          </Link>
         </div>
       </div>
       <Link className='planReferBtn' to='/plans'>

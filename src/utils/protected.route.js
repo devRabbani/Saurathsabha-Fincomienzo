@@ -13,11 +13,7 @@ const ProtectedRoute = ({ user, children, pathname, ...rest }) => {
           } else {
             // setIsModal(true)
 
-            return (
-              <Redirect
-                to={{ pathname: '/', state: { modal: true, pathname } }}
-              />
-            )
+            return <Redirect to={{ pathname: '/', state: { modal: true } }} />
           }
         }}
       />

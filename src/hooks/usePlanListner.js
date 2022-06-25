@@ -17,7 +17,7 @@ export default function usePlanListener(uid) {
         })
       )
     return () => listner()
-  }, [firebaseApp])
+  }, [firebaseApp, uid])
 
   return user
 }

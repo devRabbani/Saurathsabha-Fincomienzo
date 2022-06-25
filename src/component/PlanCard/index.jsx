@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { FaCheck, FaTimes } from 'react-icons/fa'
 import UserContext from '../../context/user'
 import { showRazorpay } from '../../utils/razorpay'
+import toast from 'react-hot-toast'
 import './plancard.style.css'
 const featureList = [
   'Free Profile Making',
@@ -18,15 +19,19 @@ const featureList = [
 ]
 
 const PlanCard = ({ item, selected, handleSelect, no, plan }) => {
-  // const [btnClick, setBtnClick] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
   const { user } = useContext(UserContext)
 
   const handleClick = async (e) => {
     e.preventDefault()
+    setIsLoading(true)
     try {
       showRazorpay(item.cls, user.displayName, user.phoneNumber, user.uid)
+      setIsLoading(false)
     } catch (error) {
-      alert('Please Try Again Something Went Wrong')
+      toast.error('Please Try Again Something Went Wrong')
+      setIsLoading(false)
       console.error(error)
     }
   }
@@ -65,7 +70,9 @@ const PlanCard = ({ item, selected, handleSelect, no, plan }) => {
       <div className='planBtnDiv'>
         <div
           onClick={() => handleSelect(no)}
-          className={`viewPlan ${item.cls === 'basic' ? 'viewFull' : ''}`}
+          className={`viewPlan ${
+            item.cls === 'basic' && plan !== 'basic' ? 'viewFull' : ''
+          }`}
         >
           {selected === no ? 'Close' : 'View'}
         </div>
@@ -73,8 +80,12 @@ const PlanCard = ({ item, selected, handleSelect, no, plan }) => {
           <div className='planActiveBtn'>Active</div>
         ) : (
           item.cls !== 'basic' && (
-            <button onClick={handleClick} className='planBtn'>
-              Select Plan
+            <button
+              disabled={isLoading}
+              onClick={handleClick}
+              className='planBtn'
+            >
+              {isLoading ? 'Loading' : 'Select Plan'}
             </button>
           )
         )}
