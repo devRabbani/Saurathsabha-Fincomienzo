@@ -2,10 +2,10 @@ import { changePlan } from './firebase'
 import toast from 'react-hot-toast'
 
 const priceList = {
-  silver: 2099,
-  gold: 3099,
-  platinum: 10999,
-  personalised: 50999,
+  silver: 2100,
+  gold: 3100,
+  platinum: 11000,
+  personalised: 51000,
 }
 
 const loadRazorpay = () => {

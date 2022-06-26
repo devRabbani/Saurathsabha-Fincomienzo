@@ -38,7 +38,7 @@
   color: rgb(4, 70, 48);
 }
 
-.planCard:hover {
+.planCard:active {
   transform: translateY(-3px);
   border-bottom: 4px solid rgb(102, 102, 102);
 }
@@ -156,7 +156,7 @@ div.personalised ul.frontUl li:nth-child(-n + 5) {
   transition: all 0.2s ease-in-out;
 }
 
-.viewPlan:hover {
+.viewPlan:active {
   background-color: rgb(93, 3, 129);
 }
 
@@ -184,7 +184,7 @@ div.personalised ul.frontUl li:nth-child(-n + 5) {
   color: white;
 }
 
-.planBtn:hover {
+.planBtn:active {
   background-color: blueviolet;
   color: white;
   border-color: blueviolet;
@@ -243,6 +243,21 @@ ul.detailedUl li svg {
 ul.detailedUl li.showTick {
   filter: opacity(1);
   color: green;
+}
+
+@media (hover: hover) {
+  .planCard:hover {
+    transform: translateY(-3px);
+    border-bottom: 4px solid rgb(102, 102, 102);
+  }
+  .viewPlan:hover {
+    background-color: rgb(93, 3, 129);
+  }
+  .planBtn:hover {
+    background-color: blueviolet;
+    color: white;
+    border-color: blueviolet;
+  }
 }
 
 @media screen and (max-width: 500px) {

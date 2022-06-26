@@ -60,7 +60,7 @@
   transition: all 0.3s;
 }
 
-.footerFlex ul li a:hover {
+.footerFlex ul li a:active {
   color: rgb(229, 229, 229);
 }
 
@@ -71,12 +71,21 @@
   margin-top: 15px;
 }
 
-.socialLinkWrapper a:hover {
+.socialLinkWrapper a:active {
   color: blueviolet;
 }
 
 .footerFlex .h2Margin {
   margin: 8px 0 10px;
+}
+
+@media (hover: hover) {
+  .footerFlex ul li a:hover {
+    color: rgb(229, 229, 229);
+  }
+  .socialLinkWrapper a:hover {
+    color: blueviolet;
+  }
 }
 
 @media screen and (max-width: 500px) {
