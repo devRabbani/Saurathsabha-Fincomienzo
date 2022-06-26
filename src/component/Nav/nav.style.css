@@ -106,7 +106,7 @@ div.logo {
 }
 
 .overlayMenu {
-  padding: 10px 0 50px;
+  padding: 10px 0 20px;
   position: absolute;
   width: 200px;
   box-shadow: 0 0 18px #3535353b;
@@ -158,6 +158,16 @@ div.logo {
   margin-bottom: -7px;
 }
 
+.helpline {
+  flex-direction: column;
+  gap: 0px;
+  align-items: flex-start;
+  color: rgb(148, 148, 148);
+}
+.helpline span {
+  color: rgba(38, 118, 118, 0.763);
+}
+
 @media (hover: hover) {
   .nav-item:hover {
     /* background-color: rgba(128, 128, 128, 0.432); */
@@ -198,7 +208,7 @@ div.logo {
     left: 0;
     right: 0;
     background-color: white;
-    padding: 20px 10px 30px;
+    padding: 20px 10px 16px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
   }
 
@@ -244,5 +254,12 @@ div.logo {
     align-items: center;
     gap: 6px;
     /* justify-content: center; */
+  }
+
+  .helpline {
+    font-size: 1.8rem;
+    margin-top: 30px;
+
+    flex-direction: row;
   }
 }

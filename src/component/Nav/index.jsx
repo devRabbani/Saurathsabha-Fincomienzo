@@ -117,6 +117,10 @@ const Nav = ({ user, setIsModal }) => {
                 >
                   <FaSignOutAlt /> Logout
                 </div>
+                <div className='helpline'>
+                  HelpLine
+                  <span>8527853048</span>
+                </div>
               </div>
             )}
           </div>
@@ -191,6 +195,9 @@ const Nav = ({ user, setIsModal }) => {
                 <FaSignInAlt /> Login
               </button>
             )}
+            <div className='helpline'>
+              HelpLine : <span>8527853048</span>
+            </div>
           </div>
         )}
       </div>
