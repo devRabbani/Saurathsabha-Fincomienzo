@@ -71,6 +71,24 @@
 .additional .btn.finish {
   width: 100%;
 }
+.additional .skipBtn {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  background-color: rgb(254, 254, 254);
+  color: rgb(105, 104, 107);
+  padding: 8.5px 0px;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  border: 2px solid rgb(218, 182, 182);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.additional .skipBtn:active {
+  background-color: rgb(207, 166, 130);
+  color: rgb(255, 255, 255);
+}
 
 .additional .btn.finish {
   background-color: rgb(116, 28, 199);
@@ -255,6 +273,10 @@ form.profileFileDiv {
   .waitIsManual a:hover {
     background-color: rgb(95, 18, 168);
     transform: scale(0.98);
+  }
+  .additional .skipBtn:hover {
+    background-color: rgb(207, 166, 130);
+    color: rgb(255, 255, 255);
   }
 }
 

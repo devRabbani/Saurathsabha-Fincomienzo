@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const EducationInfo = ({
   highestQual,
   yearComplete,
@@ -6,6 +8,8 @@ const EducationInfo = ({
   department,
   handleChange,
   setPage,
+  uid,
+  isEditing,
 }) => {
   const invalid =
     highestQual === '' ||
@@ -76,6 +80,11 @@ const EducationInfo = ({
       >
         Continue
       </button>
+      {!isEditing && (
+        <Link className='skipBtn' to={`/profile/${uid}`}>
+          Skip for Now
+        </Link>
+      )}
     </>
   )
 }

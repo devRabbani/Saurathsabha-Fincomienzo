@@ -74,7 +74,7 @@ const LoginModal = () => {
         .catch((err) => {
           console.error(err)
           setSuccess('')
-          setError(err)
+          setError('Something went wrong with your number')
           setIsLoading(false)
           window.location.reload()
         })

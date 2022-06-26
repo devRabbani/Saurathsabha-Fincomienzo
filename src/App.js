@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import Nav from './component/Nav'
 import Footer from './component/Footer'
@@ -22,7 +22,7 @@ function App() {
   const { user } = useAuthListener()
   const plan = usePlanListener(user?.uid)
   const [isModal, setIsModal] = useState(false)
-
+  const location = useLocation()
   // useEffect(() => {
   //   if (isModal) {
   //     document.body.style.overflowY = 'hidden'
@@ -34,7 +34,10 @@ function App() {
   return (
     <UserContext.Provider value={{ user, plan }}>
       <ModalContext.Provider value={{ isModal, setIsModal }}>
-        <Nav setIsModal={setIsModal} user={user} />
+        {location.pathname !== '/signup' && (
+          <Nav setIsModal={setIsModal} user={user} />
+        )}
+
         <Toaster />
         <div className='pageBody'>
           <Switch>
