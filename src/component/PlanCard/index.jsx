@@ -27,7 +27,7 @@ const PlanCard = ({ item, selected, handleSelect, no, plan }) => {
     e.preventDefault()
     setIsLoading(true)
     try {
-      showRazorpay(item.cls, user.displayName, user.phoneNumber, user.uid)
+      await showRazorpay(item.cls, user.displayName, user.phoneNumber, user.uid)
       setIsLoading(false)
     } catch (error) {
       toast.error('Please Try Again Something Went Wrong')

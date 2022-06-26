@@ -78,9 +78,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className='footerBottom'>
-        Saurath Sabha Inc © 2021 All rights are reserved.
-      </p>
     </div>
   )
 }

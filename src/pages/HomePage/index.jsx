@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import About from '../../component/About'
+import Footer from '../../component/Footer'
 import HeroSection from '../../component/HeroSection'
 import LoginModal from '../../component/LoginModal'
 import Modal from '../../component/Modal'
@@ -45,6 +46,7 @@ const HomePage = ({ isModal, setIsModal }) => {
 
       <TestimonyGrid />
       <PlanSection />
+      <Footer />
       {/* <Testimony /> */}
       {!user && isModal && (
         <Modal setIsModal={setIsModal}>

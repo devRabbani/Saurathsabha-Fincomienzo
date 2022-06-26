@@ -115,11 +115,24 @@ input {
   color: red;
 }
 
+p.footerBottom {
+  background-color: rgb(0, 0, 0);
+  padding: 10px 0;
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgb(97, 97, 97);
+  font-weight: 500;
+  margin-top: auto;
+}
+
 @media screen and (max-width: 500px) {
   .container {
     width: 95%;
   }
   .pageBody {
     padding-top: 56px;
+  }
+  p.footerBottom {
+    font-size: 1.2rem;
   }
 }

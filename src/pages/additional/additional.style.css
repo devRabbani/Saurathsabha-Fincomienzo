@@ -71,15 +71,33 @@
 .additional .btn.finish {
   width: 100%;
 }
+.additional .skipBtn {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  background-color: rgb(254, 254, 254);
+  color: rgb(105, 104, 107);
+  padding: 8.5px 0px;
+  font-size: 1.6rem;
+  border-radius: 4px;
+  border: 2px solid rgb(218, 182, 182);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.additional .skipBtn:active {
+  background-color: rgb(207, 166, 130);
+  color: rgb(255, 255, 255);
+}
 
 .additional .btn.finish {
   background-color: rgb(116, 28, 199);
 }
 
-.additional .btn:hover:not(.disabled) {
+.additional .btn:active:not(.disabled) {
   background-color: #1a1a94;
 }
-.additional .btn.finish:hover:not(.disabled) {
+.additional .btn.finish:active:not(.disabled) {
   background-color: rgb(104, 6, 161);
 }
 
@@ -89,11 +107,11 @@
   color: #4e4b54;
 }
 
-.additional .btn.skip:hover {
+.additional .btn.skip:active {
   background-color: #d0d0d0;
   color: #626060;
 }
-.additional .btn.sibb:hover {
+.additional .btn.sibb:active {
   background-color: #815807;
 }
 
@@ -197,7 +215,7 @@ form.profileFileDiv {
   border-radius: 4px;
 }
 
-.profileFileDiv button:hover {
+.profileFileDiv button:active {
   background-color: #1818ac;
   letter-spacing: 0.8px;
 }
@@ -224,7 +242,7 @@ form.profileFileDiv {
   transform: scale(1);
 }
 
-.waitIsManual a:hover {
+.waitIsManual a:active {
   background-color: rgb(95, 18, 168);
   transform: scale(0.98);
 }
@@ -232,6 +250,34 @@ form.profileFileDiv {
 .loadingEditing {
   font-size: 2rem;
   margin-top: 50px;
+}
+
+@media (hover: hover) {
+  .additional .btn:hover:not(.disabled) {
+    background-color: #1a1a94;
+  }
+  .additional .btn.finish:hover:not(.disabled) {
+    background-color: rgb(104, 6, 161);
+  }
+  .additional .btn.skip:hover {
+    background-color: #d0d0d0;
+    color: #626060;
+  }
+  .additional .btn.sibb:hover {
+    background-color: #815807;
+  }
+  .profileFileDiv button:hover {
+    background-color: #1818ac;
+    letter-spacing: 0.8px;
+  }
+  .waitIsManual a:hover {
+    background-color: rgb(95, 18, 168);
+    transform: scale(0.98);
+  }
+  .additional .skipBtn:hover {
+    background-color: rgb(207, 166, 130);
+    color: rgb(255, 255, 255);
+  }
 }
 
 @media screen and (max-width: 500px) {

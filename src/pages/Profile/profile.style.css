@@ -129,7 +129,7 @@
   box-shadow: 4px 4px 18px -4px rgba(0, 0, 0, 0.295);
 }
 
-.noData a:hover {
+.noData a:active {
   background-color: rgb(110, 22, 192);
 }
 
@@ -241,19 +241,19 @@ h2.aboutBioH2 {
   transition: all 0.3s;
 }
 
-.socialIconsWrapper a.fb:hover {
+.socialIconsWrapper a.fb:active {
   color: #1877f2;
 }
-.socialIconsWrapper a.insta:hover {
+.socialIconsWrapper a.insta:active {
   color: #e4405f;
 }
-.socialIconsWrapper a.twitter:hover {
+.socialIconsWrapper a.twitter:active {
   color: #1da1f2;
 }
-.socialIconsWrapper a.linkedin:hover {
+.socialIconsWrapper a.linkedin:active {
   color: #0a66c2;
 }
-.socialIconsWrapper a.email:hover {
+.socialIconsWrapper a.email:active {
   color: #bb001b;
 }
 
@@ -263,6 +263,27 @@ h2.aboutBioH2 {
 
 .sibbAge {
   text-transform: capitalize;
+}
+
+@media (hover: hover) {
+  .noData a:hover {
+    background-color: rgb(110, 22, 192);
+  }
+  .socialIconsWrapper a.fb:hover {
+    color: #1877f2;
+  }
+  .socialIconsWrapper a.insta:hover {
+    color: #e4405f;
+  }
+  .socialIconsWrapper a.twitter:hover {
+    color: #1da1f2;
+  }
+  .socialIconsWrapper a.linkedin:hover {
+    color: #0a66c2;
+  }
+  .socialIconsWrapper a.email:hover {
+    color: #bb001b;
+  }
 }
 
 @media screen and (max-width: 500px) {

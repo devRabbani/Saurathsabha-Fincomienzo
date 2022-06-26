@@ -196,6 +196,8 @@ const Additional = () => {
                         department={department}
                         handleChange={handleChange}
                         setPage={setPage}
+                        uid={user?.uid}
+                        isEditing={isEditing}
                       />
                     )}
                     {page === 1 && (

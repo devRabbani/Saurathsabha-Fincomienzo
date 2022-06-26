@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './signup.style.css'
 
 import { registerUser } from '../../utils/firebase'
 import useTop from '../../hooks/useTop'
 import useTitle from '../../hooks/useTitle'
+import FirebaseContext from '../../context/firebase'
 
 const Signup = ({ location, history }) => {
   useTop()
@@ -24,6 +25,7 @@ const Signup = ({ location, history }) => {
     number: phoneNo,
   })
   const { name, email, city, age, employement, profileFor, gender } = data
+  const { firebaseApp } = useContext(FirebaseContext)
 
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -66,6 +68,16 @@ const Signup = ({ location, history }) => {
         })
         setError(error.message)
       })
+  }
+
+  const handleCancel = async () => {
+    try {
+      await firebaseApp.auth().signOut()
+      history.push('/')
+    } catch (error) {
+      console.log(error)
+      history.push('/')
+    }
   }
 
   return (
@@ -147,6 +159,8 @@ const Signup = ({ location, history }) => {
                   required
                   className='form-control'
                   value={age}
+                  min={21}
+                  max={90}
                   onChange={handleChange}
                 />
               </div>
@@ -172,6 +186,9 @@ const Signup = ({ location, history }) => {
             {error && <p className='errorMsg'>{error}</p>}
           </form>
         </div>
+        <button onClick={handleCancel} className='cancelSignup'>
+          Cancel Sign Up
+        </button>
       </div>
     </div>
   )

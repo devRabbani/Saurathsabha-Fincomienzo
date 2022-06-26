@@ -74,4 +74,11 @@
   .leftService {
     margin: 40px 0 30px;
   }
+  .rightService {
+    background-color: black;
+    background-color: #ffffff3b;
+    backdrop-filter: blur(9px);
+    padding: 20px 20px 30px;
+    border-radius: 9px;
+  }
 }

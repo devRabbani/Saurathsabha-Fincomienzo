@@ -72,12 +72,12 @@
 .planReferBtn svg.arrowSvg {
   transition: transform 0.3s ease-in;
 }
-.planReferBtn:hover {
+.planReferBtn:active {
   background-color: rgb(41, 15, 65);
   background-color: rgb(241, 241, 241);
   color: rgb(111, 21, 196);
 }
-.planReferBtn:hover svg.arrowSvg {
+.planReferBtn:active svg.arrowSvg {
   transform: translateX(4px);
 }
 
@@ -120,7 +120,7 @@
   transition: all 0.3s ease-in;
   border-bottom: 2px solid rgba(19, 19, 19, 0.822);
 }
-.planSectionCard button:hover {
+.planSectionCard button:active {
   transform: translateY(1.2px);
   border-bottom: 2px solid blueviolet;
 }
@@ -128,7 +128,7 @@
 .planSectionCard button:active {
   outline: rgb(187, 125, 245) solid;
 }
-.planSectionCard.big button:hover {
+.planSectionCard.big button:active {
   transform: translateY(0px);
   background-color: blueviolet;
   color: white;
@@ -139,6 +139,26 @@
   background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border-bottom: none;
+}
+
+@media (hover: hover) {
+  .planReferBtn:hover {
+    background-color: rgb(41, 15, 65);
+    background-color: rgb(241, 241, 241);
+    color: rgb(111, 21, 196);
+  }
+  .planReferBtn:hover svg.arrowSvg {
+    transform: translateX(4px);
+  }
+  .planSectionCard button:hover {
+    transform: translateY(1.2px);
+    border-bottom: 2px solid blueviolet;
+  }
+  .planSectionCard.big button:hover {
+    transform: translateY(0px);
+    background-color: blueviolet;
+    color: white;
+  }
 }
 
 @media screen and (max-width: 500px) {

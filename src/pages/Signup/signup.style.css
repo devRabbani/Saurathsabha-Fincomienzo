@@ -68,6 +68,7 @@
 }
 .signUpBg {
   background-color: blanchedalmond;
+  margin-top: -62px;
 }
 
 .signUp .errorMsg {
@@ -80,9 +81,27 @@
   margin: 20px 0;
 }
 
+.cancelSignup {
+  padding: 8px 14px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(188, 29, 29);
+  font-size: 1.7rem;
+  border: 1px solid red;
+  border-radius: 7px;
+  cursor: pointer;
+  box-shadow: 5px 5px 20px -4px rgba(0, 0, 0, 0.288);
+}
+
 @media screen and (max-width: 500px) {
   .signUpCard {
     width: 100%;
     padding: 10px 15px 40px;
+  }
+
+  .signUp {
+    justify-content: flex-start;
+  }
+  .signUpBg {
+    padding: 70px 0 10px;
   }
 }

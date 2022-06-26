@@ -1,3 +1,6 @@
+.searchWrapper {
+  padding-bottom: 40px;
+}
 .filterWrapper,
 .searchDiv {
   display: flex;
@@ -64,11 +67,11 @@
   border-bottom: 2px solid rgb(101, 0, 20);
 }
 
-.btnReset:hover {
+.btnReset:active {
   background-color: rgb(117, 6, 6);
 }
 
-.btnSearch:hover {
+.btnSearch:active {
   background-color: rgb(90, 9, 221);
 }
 
@@ -85,6 +88,15 @@
   margin-top: 70px;
   color: brown;
   text-align: center;
+}
+
+@media (hover: hover) {
+  .btnReset:hover {
+    background-color: rgb(117, 6, 6);
+  }
+  .btnSearch:hover {
+    background-color: rgb(90, 9, 221);
+  }
 }
 
 @media screen and (max-width: 500px) {
