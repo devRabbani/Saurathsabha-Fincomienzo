@@ -35,9 +35,7 @@ function App() {
   return (
     <UserContext.Provider value={{ user, plan }}>
       <ModalContext.Provider value={{ isModal, setIsModal }}>
-        {location.pathname !== '/signup' && (
-          <Nav setIsModal={setIsModal} user={user} />
-        )}
+        {location.pathname !== '/signup' && <Nav setIsModal={setIsModal} />}
 
         <Toaster />
         <div className='pageBody'>
