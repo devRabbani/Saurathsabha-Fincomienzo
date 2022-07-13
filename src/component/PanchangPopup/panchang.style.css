@@ -1,0 +1,80 @@
+.panchangWrapper {
+  position: fixed;
+  background-color: #e65555;
+  padding: 18px 25px;
+  border-radius: 14px;
+  right: 30px;
+  z-index: 99999;
+  bottom: 30px;
+  color: white;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+}
+
+.panchangWrapper p {
+  font-size: 2.4rem;
+}
+
+.panchangWrapper button {
+  font-size: 1.7rem;
+  padding: 7px 20px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid white;
+}
+
+.panchangWrapper button:nth-child(2) {
+  background-color: rgb(179, 56, 56);
+  color: rgb(217, 217, 217);
+  border-color: rgb(179, 56, 56);
+}
+
+.panchangWrapper button:nth-child(1):active {
+  border-color: #f54242;
+  background-color: rgb(43, 116, 198);
+  color: white;
+}
+
+.panchangWrapper button:nth-child(2):active {
+  border-color: white;
+}
+
+.panchangWrapper .btnWrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+@media (hover: hover) {
+  .panchangWrapper button:nth-child(1):hover {
+    border-color: #f54242;
+    background-color: rgb(43, 116, 198);
+    color: white;
+  }
+
+  .panchangWrapper button:nth-child(2):hover {
+    border-color: white;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .panchangWrapper {
+    padding: 18px 25px;
+    width: fit-content;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 10px;
+  }
+
+  .panchangWrapper p {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .panchangWrapper .btnWrapper {
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
