@@ -440,3 +440,13 @@ export const changePlan = async (uid, data, plan, amount) => {
       timestamp: Date.now(),
     })
 }
+
+export const addShidhantRequest = async (data, orderData) => {
+  await firebaseApp
+    .firestore()
+    .collection('shidhant')
+    .add({
+      ...data,
+      orderData,
+    })
+}

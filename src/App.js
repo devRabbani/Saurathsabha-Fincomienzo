@@ -17,6 +17,7 @@ import Favourite from './pages/favourite'
 import Notification from './pages/notification'
 import usePlanListener from './hooks/usePlanListner'
 import { Toaster } from 'react-hot-toast'
+import ShidhantSignup from './pages/shidhantSignup'
 
 function App() {
   const { user } = useAuthListener()
@@ -46,6 +47,7 @@ function App() {
             </Route>
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/service/register' component={ServiceRegister} />
+            <Route exact path='/shidhant/signup' component={ShidhantSignup} />
             <ProtectedRoute user={user} path='/search' exact>
               <Search />
             </ProtectedRoute>

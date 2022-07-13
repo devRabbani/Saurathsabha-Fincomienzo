@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 import About from '../../component/About'
@@ -6,6 +6,7 @@ import Footer from '../../component/Footer'
 import HeroSection from '../../component/HeroSection'
 import LoginModal from '../../component/LoginModal'
 import Modal from '../../component/Modal'
+import PanchangPopup from '../../component/PanchangPopup'
 import PlanSection from '../../component/planSection'
 import Services from '../../component/Services'
 import TestimonyGrid from '../../component/TestimonyGrid'
@@ -21,6 +22,16 @@ const HomePage = ({ isModal, setIsModal }) => {
   const { user } = useContext(UserContext)
   const location = useLocation()
   const history = useHistory()
+  const [isShidhant, setIsShidhant] = useState(false)
+  const [isClicked, setIsClicked] = useState(
+    JSON.parse(sessionStorage.getItem('clicked')) || false
+  )
+
+  const handleClick = () => {
+    setIsShidhant(false)
+    setIsClicked(true)
+    sessionStorage.setItem('clicked', 'true')
+  }
 
   useEffect(() => {
     if (isModal) {
@@ -36,6 +47,14 @@ const HomePage = ({ isModal, setIsModal }) => {
     }
   }, [location])
 
+  useEffect(() => {
+    if (!isClicked) {
+      setTimeout(() => {
+        setIsShidhant(true)
+      }, 5000)
+    }
+  }, [])
+
   return (
     <>
       <HeroSection />
@@ -48,6 +67,7 @@ const HomePage = ({ isModal, setIsModal }) => {
       <PlanSection />
       <Footer />
       {/* <Testimony /> */}
+      {isShidhant && <PanchangPopup handleClick={handleClick} />}
       {!user && isModal && (
         <Modal setIsModal={setIsModal}>
           <LoginModal />
