@@ -19,7 +19,8 @@ import {
   FaBars,
 } from 'react-icons/fa'
 
-const Nav = ({ user, setIsModal }) => {
+const Nav = ({ setIsModal }) => {
+  const { user } = useContext(UserContext)
   const { firebaseApp } = useContext(FirebaseContext)
   const [isMenu, setIsMenu] = useState(false)
   const [hamMenu, setHamMenu] = useState(false)
@@ -87,9 +88,7 @@ const Nav = ({ user, setIsModal }) => {
               onClick={() => setIsMenu((prev) => !prev)}
             >
               <FaUserCircle />
-              <p>
-                {user.displayName?.length > 0 ? user.displayName : 'User Name'}
-              </p>
+              <p>{user.displayName?.length > 0 && user.displayName}</p>
               {/* {isMenu ? <FaChevronUp /> : <FaChevronDown />} */}
 
               <FaChevronDown className={isMenu && 'tick'} />
