@@ -74,7 +74,7 @@ export const showRazorpay = async (plan, name, number, uid) => {
   rzp1.open()
 }
 
-export const showRZPYShidhant = async (data, setIsSucces) => {
+export const showRZPYShidhant = async (data, url1, url2, setIsSucces) => {
   const loadedscript = await loadRazorpay()
   if (!loadedscript) {
     alert('Error while loading the script , Please try again')
@@ -105,7 +105,7 @@ export const showRZPYShidhant = async (data, setIsSucces) => {
           signature: res.razorpay_signature,
         }),
       }).then((t) => t.json())
-      await addShidhantRequest(data, result)
+      await addShidhantRequest(data, url1, url2, result)
       // await changePlan(uid, result, plan, amount)
       if (result?.isPaid) {
         toast.success('Payment Successfully Completed')

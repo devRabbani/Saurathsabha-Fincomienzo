@@ -441,12 +441,14 @@ export const changePlan = async (uid, data, plan, amount) => {
     })
 }
 
-export const addShidhantRequest = async (data, orderData) => {
+export const addShidhantRequest = async (data, url1, url2, orderData) => {
   await firebaseApp
     .firestore()
     .collection('shidhant')
     .add({
       ...data,
+      brideHoroscope: url1,
+      groomsHoroscope: url2,
       orderData,
     })
 }
